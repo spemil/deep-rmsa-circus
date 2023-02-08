@@ -1,0 +1,36 @@
+{
+    "os": "macOS-10.16-x86_64-i386-64bit",
+    "python": "3.10.8",
+    "heartbeatAt": "2023-02-07T09:28:32.937815",
+    "startedAt": "2023-02-07T09:28:32.272764",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/Users/emil/Documents/MyRMSA/My_Deep_RMSA_A3C.py",
+    "codePath": "My_Deep_RMSA_A3C.py",
+    "host": "Emils-MacBook-Pro-3.local",
+    "username": "emil",
+    "executable": "/Users/emil/opt/anaconda3/envs/emilsenv/bin/python",
+    "cpu_count": 2,
+    "cpu_count_logical": 4,
+    "cpu_freq": {
+        "current": 2000,
+        "min": 2000,
+        "max": 2000
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2000,
+            "min": 2000,
+            "max": 2000
+        }
+    ],
+    "disk": {
+        "total": 233.46913528442383,
+        "used": 216.93186950683594
+    },
+    "memory": {
+        "total": 8.0
+    }
+}

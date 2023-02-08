@@ -1,0 +1,177 @@
+2023-02-07 10:20:19,999 INFO    StreamThr :5938 [internal.py:wandb_internal():87] W&B internal server running at pid: 5938, started at: 2023-02-07 10:20:19.999019
+2023-02-07 10:20:20,001 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: status
+2023-02-07 10:20:20,011 INFO    WriterThread:5938 [datastore.py:open_for_write():85] open: /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/run-r2f7qln8.wandb
+2023-02-07 10:20:20,012 DEBUG   SenderThread:5938 [sender.py:send():334] send: header
+2023-02-07 10:20:20,012 DEBUG   SenderThread:5938 [sender.py:send():334] send: run
+2023-02-07 10:20:20,538 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: check_version
+2023-02-07 10:20:20,543 INFO    SenderThread:5938 [dir_watcher.py:__init__():216] watching files in: /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files
+2023-02-07 10:20:20,543 INFO    SenderThread:5938 [sender.py:_start_run_threads():1065] run started: r2f7qln8 with start time 1675761620.001683
+2023-02-07 10:20:20,543 DEBUG   SenderThread:5938 [sender.py:send_request():361] send_request: summary_record
+2023-02-07 10:20:20,543 INFO    SenderThread:5938 [sender.py:_save_file():1319] saving file wandb-summary.json with policy end
+2023-02-07 10:20:20,544 DEBUG   SenderThread:5938 [sender.py:send_request():361] send_request: check_version
+2023-02-07 10:20:20,918 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: run_start
+2023-02-07 10:20:20,946 DEBUG   HandlerThread:5938 [system_info.py:__init__():31] System info init
+2023-02-07 10:20:20,947 DEBUG   HandlerThread:5938 [system_info.py:__init__():46] System info init done
+2023-02-07 10:20:20,947 INFO    HandlerThread:5938 [system_monitor.py:start():151] Starting system monitor
+2023-02-07 10:20:20,947 INFO    SystemMonitor:5938 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2023-02-07 10:20:20,947 INFO    HandlerThread:5938 [system_monitor.py:probe():172] Collecting system info
+2023-02-07 10:20:20,948 INFO    SystemMonitor:5938 [interfaces.py:start():168] Started cpu
+2023-02-07 10:20:20,949 DEBUG   HandlerThread:5938 [system_info.py:probe():195] Probing system
+2023-02-07 10:20:20,949 INFO    SystemMonitor:5938 [interfaces.py:start():168] Started disk
+2023-02-07 10:20:20,951 INFO    SystemMonitor:5938 [interfaces.py:start():168] Started memory
+2023-02-07 10:20:20,960 INFO    SystemMonitor:5938 [interfaces.py:start():168] Started network
+2023-02-07 10:20:20,967 DEBUG   HandlerThread:5938 [git.py:repo():40] git repository is invalid
+2023-02-07 10:20:20,967 DEBUG   HandlerThread:5938 [system_info.py:probe():241] Probing system done
+2023-02-07 10:20:20,968 DEBUG   HandlerThread:5938 [system_monitor.py:probe():181] {'os': 'macOS-10.16-x86_64-i386-64bit', 'python': '3.10.8', 'heartbeatAt': '2023-02-07T09:20:20.949609', 'startedAt': '2023-02-07T09:20:19.976649', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/Users/emil/Documents/MyRMSA/My_Deep_RMSA_A3C.py', 'codePath': 'My_Deep_RMSA_A3C.py', 'host': 'Emils-MacBook-Pro-3.local', 'username': 'emil', 'executable': '/Users/emil/opt/anaconda3/envs/emilsenv/bin/python', 'cpu_count': 2, 'cpu_count_logical': 4, 'cpu_freq': {'current': 2000, 'min': 2000, 'max': 2000}, 'cpu_freq_per_core': [{'current': 2000, 'min': 2000, 'max': 2000}], 'disk': {'total': 233.46913528442383, 'used': 216.88767623901367}, 'memory': {'total': 8.0}}
+2023-02-07 10:20:20,968 INFO    HandlerThread:5938 [system_monitor.py:probe():182] Finished collecting system info
+2023-02-07 10:20:20,968 INFO    HandlerThread:5938 [system_monitor.py:probe():185] Publishing system info
+2023-02-07 10:20:20,968 DEBUG   HandlerThread:5938 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-02-07 10:20:20,969 DEBUG   HandlerThread:5938 [system_info.py:_save_pip():67] Saving pip packages done
+2023-02-07 10:20:20,969 DEBUG   HandlerThread:5938 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-02-07 10:20:21,550 INFO    Thread-13 :5938 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files/requirements.txt
+2023-02-07 10:20:21,552 INFO    Thread-13 :5938 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files/conda-environment.yaml
+2023-02-07 10:20:21,552 INFO    Thread-13 :5938 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files/wandb-summary.json
+2023-02-07 10:20:33,954 DEBUG   HandlerThread:5938 [system_info.py:_save_conda():86] Saving conda packages done
+2023-02-07 10:20:33,955 INFO    HandlerThread:5938 [system_monitor.py:probe():187] Finished publishing system info
+2023-02-07 10:20:33,974 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: status_report
+2023-02-07 10:20:33,974 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-07 10:20:33,975 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: status_report
+2023-02-07 10:20:33,975 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-07 10:20:33,975 DEBUG   SenderThread:5938 [sender.py:send():334] send: files
+2023-02-07 10:20:33,976 INFO    SenderThread:5938 [sender.py:_save_file():1319] saving file wandb-metadata.json with policy now
+2023-02-07 10:20:33,984 DEBUG   SenderThread:5938 [sender.py:send():334] send: telemetry
+2023-02-07 10:20:33,988 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: stop_status
+2023-02-07 10:20:33,988 DEBUG   SenderThread:5938 [sender.py:send_request():361] send_request: stop_status
+2023-02-07 10:20:34,320 DEBUG   SenderThread:5938 [sender.py:send():334] send: exit
+2023-02-07 10:20:34,320 INFO    SenderThread:5938 [sender.py:send_exit():557] handling exit code: 1
+2023-02-07 10:20:34,321 INFO    SenderThread:5938 [sender.py:send_exit():559] handling runtime: 13
+2023-02-07 10:20:34,322 INFO    SenderThread:5938 [sender.py:_save_file():1319] saving file wandb-summary.json with policy end
+2023-02-07 10:20:34,323 INFO    SenderThread:5938 [sender.py:send_exit():565] send defer
+2023-02-07 10:20:34,323 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: defer
+2023-02-07 10:20:34,323 INFO    HandlerThread:5938 [handler.py:handle_request_defer():170] handle defer: 0
+2023-02-07 10:20:34,324 DEBUG   SenderThread:5938 [sender.py:send_request():361] send_request: defer
+2023-02-07 10:20:34,324 INFO    SenderThread:5938 [sender.py:send_request_defer():581] handle sender defer: 0
+2023-02-07 10:20:34,324 INFO    SenderThread:5938 [sender.py:transition_state():585] send defer: 1
+2023-02-07 10:20:34,325 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: defer
+2023-02-07 10:20:34,325 INFO    HandlerThread:5938 [handler.py:handle_request_defer():170] handle defer: 1
+2023-02-07 10:20:34,325 DEBUG   SenderThread:5938 [sender.py:send_request():361] send_request: defer
+2023-02-07 10:20:34,325 INFO    SenderThread:5938 [sender.py:send_request_defer():581] handle sender defer: 1
+2023-02-07 10:20:34,326 INFO    SenderThread:5938 [sender.py:transition_state():585] send defer: 2
+2023-02-07 10:20:34,326 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: defer
+2023-02-07 10:20:34,326 INFO    HandlerThread:5938 [handler.py:handle_request_defer():170] handle defer: 2
+2023-02-07 10:20:34,326 INFO    HandlerThread:5938 [system_monitor.py:finish():161] Stopping system monitor
+2023-02-07 10:20:34,340 DEBUG   SystemMonitor:5938 [system_monitor.py:_start():130] Starting system metrics aggregation loop
+2023-02-07 10:20:34,340 DEBUG   SystemMonitor:5938 [system_monitor.py:_start():137] Finished system metrics aggregation loop
+2023-02-07 10:20:34,340 DEBUG   SystemMonitor:5938 [system_monitor.py:_start():141] Publishing last batch of metrics
+2023-02-07 10:20:34,341 INFO    HandlerThread:5938 [interfaces.py:finish():175] Joined cpu
+2023-02-07 10:20:34,341 INFO    HandlerThread:5938 [interfaces.py:finish():175] Joined disk
+2023-02-07 10:20:34,341 INFO    HandlerThread:5938 [interfaces.py:finish():175] Joined memory
+2023-02-07 10:20:34,341 INFO    HandlerThread:5938 [interfaces.py:finish():175] Joined network
+2023-02-07 10:20:34,342 DEBUG   SenderThread:5938 [sender.py:send_request():361] send_request: defer
+2023-02-07 10:20:34,342 INFO    SenderThread:5938 [sender.py:send_request_defer():581] handle sender defer: 2
+2023-02-07 10:20:34,342 INFO    SenderThread:5938 [sender.py:transition_state():585] send defer: 3
+2023-02-07 10:20:34,342 DEBUG   SenderThread:5938 [sender.py:send():334] send: stats
+2023-02-07 10:20:34,342 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: defer
+2023-02-07 10:20:34,343 INFO    HandlerThread:5938 [handler.py:handle_request_defer():170] handle defer: 3
+2023-02-07 10:20:34,343 DEBUG   SenderThread:5938 [sender.py:send_request():361] send_request: defer
+2023-02-07 10:20:34,343 INFO    SenderThread:5938 [sender.py:send_request_defer():581] handle sender defer: 3
+2023-02-07 10:20:34,343 INFO    SenderThread:5938 [sender.py:transition_state():585] send defer: 4
+2023-02-07 10:20:34,344 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: defer
+2023-02-07 10:20:34,344 INFO    HandlerThread:5938 [handler.py:handle_request_defer():170] handle defer: 4
+2023-02-07 10:20:34,344 DEBUG   SenderThread:5938 [sender.py:send_request():361] send_request: defer
+2023-02-07 10:20:34,344 INFO    SenderThread:5938 [sender.py:send_request_defer():581] handle sender defer: 4
+2023-02-07 10:20:34,344 INFO    SenderThread:5938 [sender.py:transition_state():585] send defer: 5
+2023-02-07 10:20:34,344 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: defer
+2023-02-07 10:20:34,344 INFO    HandlerThread:5938 [handler.py:handle_request_defer():170] handle defer: 5
+2023-02-07 10:20:34,345 DEBUG   SenderThread:5938 [sender.py:send():334] send: summary
+2023-02-07 10:20:34,345 INFO    SenderThread:5938 [sender.py:_save_file():1319] saving file wandb-summary.json with policy end
+2023-02-07 10:20:34,346 DEBUG   SenderThread:5938 [sender.py:send_request():361] send_request: defer
+2023-02-07 10:20:34,346 INFO    SenderThread:5938 [sender.py:send_request_defer():581] handle sender defer: 5
+2023-02-07 10:20:34,346 INFO    SenderThread:5938 [sender.py:transition_state():585] send defer: 6
+2023-02-07 10:20:34,346 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: defer
+2023-02-07 10:20:34,346 INFO    HandlerThread:5938 [handler.py:handle_request_defer():170] handle defer: 6
+2023-02-07 10:20:34,347 DEBUG   SenderThread:5938 [sender.py:send_request():361] send_request: defer
+2023-02-07 10:20:34,347 INFO    SenderThread:5938 [sender.py:send_request_defer():581] handle sender defer: 6
+2023-02-07 10:20:34,352 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: status_report
+2023-02-07 10:20:34,695 INFO    Thread-13 :5938 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files/conda-environment.yaml
+2023-02-07 10:20:34,719 INFO    Thread-13 :5938 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files/wandb-summary.json
+2023-02-07 10:20:34,741 INFO    Thread-13 :5938 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files/wandb-metadata.json
+2023-02-07 10:20:34,748 INFO    Thread-13 :5938 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files/output.log
+2023-02-07 10:20:34,762 INFO    SenderThread:5938 [sender.py:transition_state():585] send defer: 7
+2023-02-07 10:20:34,762 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: defer
+2023-02-07 10:20:34,762 INFO    HandlerThread:5938 [handler.py:handle_request_defer():170] handle defer: 7
+2023-02-07 10:20:34,762 DEBUG   SenderThread:5938 [sender.py:send_request():361] send_request: defer
+2023-02-07 10:20:34,763 INFO    SenderThread:5938 [sender.py:send_request_defer():581] handle sender defer: 7
+2023-02-07 10:20:34,989 INFO    Thread-16 :5938 [upload_job.py:push():143] Uploaded file /var/folders/bj/q15t3z890g73nhfg59wvr4qh0000gn/T/tmpg5r7yfehwandb/wi3b4oh1-wandb-metadata.json
+2023-02-07 10:20:35,323 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: poll_exit
+2023-02-07 10:20:35,689 INFO    Thread-13 :5938 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files/config.yaml
+2023-02-07 10:20:36,695 INFO    Thread-13 :5938 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files/output.log
+2023-02-07 10:20:38,239 INFO    SenderThread:5938 [sender.py:transition_state():585] send defer: 8
+2023-02-07 10:20:38,239 DEBUG   SenderThread:5938 [sender.py:send_request():361] send_request: poll_exit
+2023-02-07 10:20:38,239 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: defer
+2023-02-07 10:20:38,240 INFO    HandlerThread:5938 [handler.py:handle_request_defer():170] handle defer: 8
+2023-02-07 10:20:38,240 DEBUG   SenderThread:5938 [sender.py:send_request():361] send_request: defer
+2023-02-07 10:20:38,240 INFO    SenderThread:5938 [sender.py:send_request_defer():581] handle sender defer: 8
+2023-02-07 10:20:38,240 INFO    SenderThread:5938 [sender.py:transition_state():585] send defer: 9
+2023-02-07 10:20:38,240 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: defer
+2023-02-07 10:20:38,240 INFO    HandlerThread:5938 [handler.py:handle_request_defer():170] handle defer: 9
+2023-02-07 10:20:38,240 DEBUG   SenderThread:5938 [sender.py:send_request():361] send_request: defer
+2023-02-07 10:20:38,241 INFO    SenderThread:5938 [sender.py:send_request_defer():581] handle sender defer: 9
+2023-02-07 10:20:38,241 INFO    SenderThread:5938 [dir_watcher.py:finish():362] shutting down directory watcher
+2023-02-07 10:20:38,702 INFO    SenderThread:5938 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files/output.log
+2023-02-07 10:20:38,703 INFO    SenderThread:5938 [dir_watcher.py:finish():392] scan: /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files
+2023-02-07 10:20:38,703 INFO    SenderThread:5938 [dir_watcher.py:finish():406] scan save: /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files/requirements.txt requirements.txt
+2023-02-07 10:20:38,703 INFO    SenderThread:5938 [dir_watcher.py:finish():406] scan save: /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files/output.log output.log
+2023-02-07 10:20:38,706 INFO    SenderThread:5938 [dir_watcher.py:finish():406] scan save: /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files/config.yaml config.yaml
+2023-02-07 10:20:38,710 INFO    SenderThread:5938 [dir_watcher.py:finish():406] scan save: /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files/wandb-summary.json wandb-summary.json
+2023-02-07 10:20:38,711 INFO    SenderThread:5938 [dir_watcher.py:finish():406] scan save: /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files/conda-environment.yaml conda-environment.yaml
+2023-02-07 10:20:38,714 INFO    SenderThread:5938 [dir_watcher.py:finish():406] scan save: /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files/wandb-metadata.json wandb-metadata.json
+2023-02-07 10:20:38,714 INFO    SenderThread:5938 [sender.py:transition_state():585] send defer: 10
+2023-02-07 10:20:38,715 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: defer
+2023-02-07 10:20:38,715 INFO    HandlerThread:5938 [handler.py:handle_request_defer():170] handle defer: 10
+2023-02-07 10:20:38,719 DEBUG   SenderThread:5938 [sender.py:send_request():361] send_request: defer
+2023-02-07 10:20:38,719 INFO    SenderThread:5938 [sender.py:send_request_defer():581] handle sender defer: 10
+2023-02-07 10:20:38,721 INFO    SenderThread:5938 [file_pusher.py:finish():160] shutting down file pusher
+2023-02-07 10:20:39,704 INFO    Thread-18 :5938 [upload_job.py:push():143] Uploaded file /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files/output.log
+2023-02-07 10:20:39,706 INFO    Thread-17 :5938 [upload_job.py:push():143] Uploaded file /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files/requirements.txt
+2023-02-07 10:20:39,706 INFO    Thread-19 :5938 [upload_job.py:push():143] Uploaded file /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files/config.yaml
+2023-02-07 10:20:39,709 INFO    Thread-20 :5938 [upload_job.py:push():143] Uploaded file /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files/wandb-summary.json
+2023-02-07 10:20:39,710 INFO    Thread-21 :5938 [upload_job.py:push():143] Uploaded file /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/files/conda-environment.yaml
+2023-02-07 10:20:39,912 INFO    Thread-12 (_thread_body):5938 [sender.py:transition_state():585] send defer: 11
+2023-02-07 10:20:39,912 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: defer
+2023-02-07 10:20:39,913 INFO    HandlerThread:5938 [handler.py:handle_request_defer():170] handle defer: 11
+2023-02-07 10:20:39,913 DEBUG   SenderThread:5938 [sender.py:send_request():361] send_request: defer
+2023-02-07 10:20:39,913 INFO    SenderThread:5938 [sender.py:send_request_defer():581] handle sender defer: 11
+2023-02-07 10:20:39,913 INFO    SenderThread:5938 [file_pusher.py:join():165] waiting for file pusher
+2023-02-07 10:20:39,913 INFO    SenderThread:5938 [sender.py:transition_state():585] send defer: 12
+2023-02-07 10:20:39,914 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: defer
+2023-02-07 10:20:39,914 INFO    HandlerThread:5938 [handler.py:handle_request_defer():170] handle defer: 12
+2023-02-07 10:20:39,914 DEBUG   SenderThread:5938 [sender.py:send_request():361] send_request: defer
+2023-02-07 10:20:39,914 INFO    SenderThread:5938 [sender.py:send_request_defer():581] handle sender defer: 12
+2023-02-07 10:20:40,223 INFO    SenderThread:5938 [sender.py:transition_state():585] send defer: 13
+2023-02-07 10:20:40,223 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: defer
+2023-02-07 10:20:40,223 INFO    HandlerThread:5938 [handler.py:handle_request_defer():170] handle defer: 13
+2023-02-07 10:20:40,223 DEBUG   SenderThread:5938 [sender.py:send_request():361] send_request: defer
+2023-02-07 10:20:40,224 INFO    SenderThread:5938 [sender.py:send_request_defer():581] handle sender defer: 13
+2023-02-07 10:20:40,224 INFO    SenderThread:5938 [sender.py:transition_state():585] send defer: 14
+2023-02-07 10:20:40,224 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: defer
+2023-02-07 10:20:40,224 INFO    HandlerThread:5938 [handler.py:handle_request_defer():170] handle defer: 14
+2023-02-07 10:20:40,224 DEBUG   SenderThread:5938 [sender.py:send():334] send: final
+2023-02-07 10:20:40,225 DEBUG   SenderThread:5938 [sender.py:send():334] send: footer
+2023-02-07 10:20:40,225 DEBUG   SenderThread:5938 [sender.py:send_request():361] send_request: defer
+2023-02-07 10:20:40,225 INFO    SenderThread:5938 [sender.py:send_request_defer():581] handle sender defer: 14
+2023-02-07 10:20:40,227 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: poll_exit
+2023-02-07 10:20:40,227 DEBUG   SenderThread:5938 [sender.py:send_request():361] send_request: poll_exit
+2023-02-07 10:20:40,228 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: server_info
+2023-02-07 10:20:40,228 DEBUG   SenderThread:5938 [sender.py:send_request():361] send_request: server_info
+2023-02-07 10:20:40,230 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: get_summary
+2023-02-07 10:20:40,231 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: sampled_history
+2023-02-07 10:20:40,750 INFO    MainThread:5938 [wandb_run.py:_footer_history_summary_info():3427] rendering history
+2023-02-07 10:20:40,750 INFO    MainThread:5938 [wandb_run.py:_footer_history_summary_info():3459] rendering summary
+2023-02-07 10:20:40,750 INFO    MainThread:5938 [wandb_run.py:_footer_sync_info():3383] logging synced files
+2023-02-07 10:20:40,751 DEBUG   HandlerThread:5938 [handler.py:handle_request():144] handle_request: shutdown
+2023-02-07 10:20:40,751 INFO    HandlerThread:5938 [handler.py:finish():841] shutting down handler
+2023-02-07 10:20:41,229 INFO    WriterThread:5938 [datastore.py:close():299] close: /Users/emil/Documents/MyRMSA/wandb/run-20230207_102019-r2f7qln8/run-r2f7qln8.wandb
+2023-02-07 10:20:41,752 INFO    SenderThread:5938 [sender.py:finish():1491] shutting down sender
+2023-02-07 10:20:41,753 INFO    SenderThread:5938 [file_pusher.py:finish():160] shutting down file pusher
+2023-02-07 10:20:41,753 INFO    SenderThread:5938 [file_pusher.py:join():165] waiting for file pusher
