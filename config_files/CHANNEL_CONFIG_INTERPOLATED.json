@@ -1,0 +1,442 @@
+{
+    "1": {
+        "Data_Rate": 100.0,
+        "SR": 35,
+        "chBW": 37.5,
+        "chLaunchPow": 0.0,
+        "qam": 2.0,
+        "reqSNR": 6.2,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "2": {
+        "Data_Rate": 150.0,
+        "SR": 35,
+        "chBW": 37.5,
+        "chLaunchPow": 0.0,
+        "qam": 3.0,
+        "reqSNR": 9.6,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "3": {
+        "Data_Rate": 200.0,
+        "SR": 35,
+        "chBW": 37.5,
+        "chLaunchPow": 0.0,
+        "qam": 4.0,
+        "reqSNR": 13.0,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "4": {
+        "Data_Rate": 250.0,
+        "SR": 35,
+        "chBW": 37.5,
+        "chLaunchPow": 0.0,
+        "qam": 5.0,
+        "reqSNR": 16.05,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "5": {
+        "Data_Rate": 300.0,
+        "SR": 35,
+        "chBW": 37.5,
+        "chLaunchPow": 0.0,
+        "qam": 6.0,
+        "reqSNR": 19.1,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "6": {
+        "Data_Rate": 200.0,
+        "SR": 70,
+        "chBW": 75,
+        "chLaunchPow": 3.010299956639812,
+        "qam": 2.0,
+        "reqSNR": 6.7,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "7": {
+        "Data_Rate": 250.0,
+        "SR": 70,
+        "chBW": 75,
+        "chLaunchPow": 3.010299956639812,
+        "qam": 2.5,
+        "reqSNR": 8.4,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "8": {
+        "Data_Rate": 300.0,
+        "SR": 70,
+        "chBW": 75,
+        "chLaunchPow": 3.010299956639812,
+        "qam": 3.0,
+        "reqSNR": 10.1,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "9": {
+        "Data_Rate": 350.0,
+        "SR": 70,
+        "chBW": 75,
+        "chLaunchPow": 3.010299956639812,
+        "qam": 3.5,
+        "reqSNR": 11.8,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "10": {
+        "Data_Rate": 400.0,
+        "SR": 70,
+        "chBW": 75,
+        "chLaunchPow": 3.010299956639812,
+        "qam": 4.0,
+        "reqSNR": 13.5,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "11": {
+        "Data_Rate": 450.0,
+        "SR": 70,
+        "chBW": 75,
+        "chLaunchPow": 3.010299956639812,
+        "qam": 4.5,
+        "reqSNR": 15.025,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "12": {
+        "Data_Rate": 500.0,
+        "SR": 70,
+        "chBW": 75,
+        "chLaunchPow": 3.010299956639812,
+        "qam": 5.0,
+        "reqSNR": 16.55,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "13": {
+        "Data_Rate": 550.0,
+        "SR": 70,
+        "chBW": 75,
+        "chLaunchPow": 3.010299956639812,
+        "qam": 5.5,
+        "reqSNR": 18.075000000000003,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "14": {
+        "Data_Rate": 600.0,
+        "SR": 70,
+        "chBW": 75,
+        "chLaunchPow": 3.010299956639812,
+        "qam": 6.0,
+        "reqSNR": 19.6,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "15": {
+        "Data_Rate": 300.0,
+        "SR": 105,
+        "chBW": 112.5,
+        "chLaunchPow": 4.771212547196624,
+        "qam": 2.0,
+        "reqSNR": 7.2,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "16": {
+        "Data_Rate": 350.0,
+        "SR": 105,
+        "chBW": 112.5,
+        "chLaunchPow": 4.771212547196624,
+        "qam": 2.33,
+        "reqSNR": 8.322000000000001,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "17": {
+        "Data_Rate": 400.0,
+        "SR": 105,
+        "chBW": 112.5,
+        "chLaunchPow": 4.771212547196624,
+        "qam": 2.67,
+        "reqSNR": 9.478,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "18": {
+        "Data_Rate": 450.0,
+        "SR": 105,
+        "chBW": 112.5,
+        "chLaunchPow": 4.771212547196624,
+        "qam": 3.0,
+        "reqSNR": 10.6,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "19": {
+        "Data_Rate": 500.0,
+        "SR": 105,
+        "chBW": 112.5,
+        "chLaunchPow": 4.771212547196624,
+        "qam": 3.33,
+        "reqSNR": 11.722,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "20": {
+        "Data_Rate": 550.0,
+        "SR": 105,
+        "chBW": 112.5,
+        "chLaunchPow": 4.771212547196624,
+        "qam": 3.67,
+        "reqSNR": 12.878,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "21": {
+        "Data_Rate": 600.0,
+        "SR": 105,
+        "chBW": 112.5,
+        "chLaunchPow": 4.771212547196624,
+        "qam": 4.0,
+        "reqSNR": 14.0,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "22": {
+        "Data_Rate": 650.0,
+        "SR": 105,
+        "chBW": 112.5,
+        "chLaunchPow": 4.771212547196624,
+        "qam": 4.33,
+        "reqSNR": 15.0065,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "23": {
+        "Data_Rate": 700.0,
+        "SR": 105,
+        "chBW": 112.5,
+        "chLaunchPow": 4.771212547196624,
+        "qam": 4.67,
+        "reqSNR": 16.0435,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "24": {
+        "Data_Rate": 750.0,
+        "SR": 105,
+        "chBW": 112.5,
+        "chLaunchPow": 4.771212547196624,
+        "qam": 5.0,
+        "reqSNR": 17.05,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "25": {
+        "Data_Rate": 800.0,
+        "SR": 105,
+        "chBW": 112.5,
+        "chLaunchPow": 4.771212547196624,
+        "qam": 5.33,
+        "reqSNR": 18.0565,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "26": {
+        "Data_Rate": 850.0,
+        "SR": 105,
+        "chBW": 112.5,
+        "chLaunchPow": 4.771212547196624,
+        "qam": 5.67,
+        "reqSNR": 19.093500000000002,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "27": {
+        "Data_Rate": 900.0,
+        "SR": 105,
+        "chBW": 112.5,
+        "chLaunchPow": 4.771212547196624,
+        "qam": 6.0,
+        "reqSNR": 20.1,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "28": {
+        "Data_Rate": 400.0,
+        "SR": 140,
+        "chBW": 150,
+        "chLaunchPow": 6.020599913279624,
+        "qam": 2.0,
+        "reqSNR": 7.7,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "29": {
+        "Data_Rate": 450.0,
+        "SR": 140,
+        "chBW": 150,
+        "chLaunchPow": 6.020599913279624,
+        "qam": 2.25,
+        "reqSNR": 8.55,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "30": {
+        "Data_Rate": 500.0,
+        "SR": 140,
+        "chBW": 150,
+        "chLaunchPow": 6.020599913279624,
+        "qam": 2.5,
+        "reqSNR": 9.4,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "31": {
+        "Data_Rate": 550.0,
+        "SR": 140,
+        "chBW": 150,
+        "chLaunchPow": 6.020599913279624,
+        "qam": 2.75,
+        "reqSNR": 10.25,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "32": {
+        "Data_Rate": 600.0,
+        "SR": 140,
+        "chBW": 150,
+        "chLaunchPow": 6.020599913279624,
+        "qam": 3.0,
+        "reqSNR": 11.1,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "33": {
+        "Data_Rate": 650.0,
+        "SR": 140,
+        "chBW": 150,
+        "chLaunchPow": 6.020599913279624,
+        "qam": 3.25,
+        "reqSNR": 11.95,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "34": {
+        "Data_Rate": 700.0,
+        "SR": 140,
+        "chBW": 150,
+        "chLaunchPow": 6.020599913279624,
+        "qam": 3.5,
+        "reqSNR": 12.8,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "35": {
+        "Data_Rate": 750.0,
+        "SR": 140,
+        "chBW": 150,
+        "chLaunchPow": 6.020599913279624,
+        "qam": 3.75,
+        "reqSNR": 13.65,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "36": {
+        "Data_Rate": 800.0,
+        "SR": 140,
+        "chBW": 150,
+        "chLaunchPow": 6.020599913279624,
+        "qam": 4.0,
+        "reqSNR": 14.5,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "37": {
+        "Data_Rate": 850.0,
+        "SR": 140,
+        "chBW": 150,
+        "chLaunchPow": 6.020599913279624,
+        "qam": 4.25,
+        "reqSNR": 15.2625,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "38": {
+        "Data_Rate": 900.0,
+        "SR": 140,
+        "chBW": 150,
+        "chLaunchPow": 6.020599913279624,
+        "qam": 4.5,
+        "reqSNR": 16.025,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "39": {
+        "Data_Rate": 950.0,
+        "SR": 140,
+        "chBW": 150,
+        "chLaunchPow": 6.020599913279624,
+        "qam": 4.75,
+        "reqSNR": 16.7875,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "40": {
+        "Data_Rate": 1000.0,
+        "SR": 140,
+        "chBW": 150,
+        "chLaunchPow": 6.020599913279624,
+        "qam": 5.0,
+        "reqSNR": 17.55,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "41": {
+        "Data_Rate": 1050.0,
+        "SR": 140,
+        "chBW": 150,
+        "chLaunchPow": 6.020599913279624,
+        "qam": 5.25,
+        "reqSNR": 18.3125,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "42": {
+        "Data_Rate": 1100.0,
+        "SR": 140,
+        "chBW": 150,
+        "chLaunchPow": 6.020599913279624,
+        "qam": 5.5,
+        "reqSNR": 19.075000000000003,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "43": {
+        "Data_Rate": 1150.0,
+        "SR": 140,
+        "chBW": 150,
+        "chLaunchPow": 6.020599913279624,
+        "qam": 5.75,
+        "reqSNR": 19.837500000000002,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    },
+    "44": {
+        "Data_Rate": 1200.0,
+        "SR": 140,
+        "chBW": 150,
+        "chLaunchPow": 6.020599913279624,
+        "qam": 6.0,
+        "reqSNR": 20.6,
+        "rloff": 0.05,
+        "TxOSNR": 36
+    }
+}

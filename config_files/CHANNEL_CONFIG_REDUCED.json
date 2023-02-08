@@ -1,0 +1,68 @@
+{
+  "1": {
+    "Data_Rate": 100,
+    "Format": "QPSK",
+    "SR": 35,
+    "chBW": 50,
+    "chLaunchPow": 0,
+    "qam": 2.0,
+    "reqSNR": 6.2,
+	"rloff": 0.05,
+    "TxOSNR": 36
+  },
+  "2": {
+    "Data_Rate": 200,
+    "Format": "QPSK",
+    "SR": 70,
+    "chBW": 75,
+    "chLaunchPow": 3.01029996,
+    "qam": 2.0,
+    "reqSNR": 6.7,
+	"rloff": 0.05,
+    "TxOSNR": 36
+  },
+  "5": {
+    "Data_Rate": 200,
+    "Format": "16 QAM",
+    "SR": 35,
+    "chBW": 50,
+    "chLaunchPow": 0,
+    "qam": 4.0,
+    "reqSNR": 13.0,
+	"rloff": 0.05,
+    "TxOSNR": 36
+  },
+  "6": {
+    "Data_Rate": 400,
+    "Format": "16 QAM",
+    "SR": 70,
+    "chBW": 75,
+    "chLaunchPow": 3.01029996,
+    "qam": 4.0,
+    "reqSNR": 13.5,
+	"rloff": 0.05,
+    "TxOSNR": 36
+  },
+  "9": {
+    "Data_Rate": 300,
+    "Format": "64 QAM",
+    "SR": 35,
+    "chBW": 50,
+    "chLaunchPow": 0,
+    "qam": 6.0,
+    "reqSNR": 19.1,
+	"rloff": 0.05,
+    "TxOSNR": 36
+  },
+  "10": {
+    "Data_Rate": 600,
+    "Format": "64 QAM",
+    "SR": 70,
+    "chBW": 75,
+    "chLaunchPow": 3.01029996,
+    "qam": 6.0,
+    "reqSNR": 19.6,
+	"rloff": 0.05,
+    "TxOSNR": 36
+  }
+}
