@@ -65,7 +65,7 @@ def random_trafficdemand(G, lambda_time=None, lambda_req=12,
 
 
 def readconfigs(filename, pch_scaler=1, Txpenalty=0):
-    with open(os.path.join('/users/emil/Documents/00_Uni/00_MA/pynp/core/config_files', filename),
+    with open(os.path.join('config_files', filename),
               mode='r', encoding='utf-8') as f:
         data = json.load(f)
     configs = []
