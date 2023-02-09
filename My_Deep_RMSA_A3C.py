@@ -14,7 +14,7 @@ import scipy.signal
 import struct
 from collections import defaultdict
 from AC_Net import AC_Net
-from My_DeepRMSA_Agent import DeepRMSA_Agent
+from My_DeepRMSA_Agent import DeepRMSAAgent
 
 # from DeepRMSA_Agent_binarypacks import DeepRMSA_Agent
 
@@ -33,57 +33,57 @@ def get_link_map():
     Generates Linkmap for NSFNET topology
     :return: defaultdict where indices correspond to [src][dst], and returns (linkID, length)
     """
-    linkmap = defaultdict(lambda: defaultdict(lambda: None))  # Topology: NSFNet
-    linkmap[1][2] = (0, 1050)
-    linkmap[2][1] = (3, 1050)
-    linkmap[1][3] = (1, 1500)
-    linkmap[3][1] = (6, 1500)
-    linkmap[1][8] = (2, 2400)
-    linkmap[8][1] = (22, 2400)
+    link_map = defaultdict(lambda: defaultdict(lambda: None))  # Topology: NSFNet
+    link_map[1][2] = (0, 1050)
+    link_map[2][1] = (3, 1050)
+    link_map[1][3] = (1, 1500)
+    link_map[3][1] = (6, 1500)
+    link_map[1][8] = (2, 2400)
+    link_map[8][1] = (22, 2400)
 
-    linkmap[2][3] = (4, 600)
-    linkmap[3][2] = (7, 600)
-    linkmap[2][4] = (5, 750)
-    linkmap[4][2] = (9, 750)
-    linkmap[3][6] = (8, 1800)
-    linkmap[6][3] = (15, 1800)
+    link_map[2][3] = (4, 600)
+    link_map[3][2] = (7, 600)
+    link_map[2][4] = (5, 750)
+    link_map[4][2] = (9, 750)
+    link_map[3][6] = (8, 1800)
+    link_map[6][3] = (15, 1800)
 
-    linkmap[4][5] = (10, 600)
-    linkmap[5][4] = (12, 600)
-    linkmap[4][11] = (11, 1950)
-    linkmap[11][4] = (32, 1950)
-    linkmap[5][6] = (13, 1200)
-    linkmap[6][5] = (16, 1200)
-    linkmap[5][7] = (14, 600)
-    linkmap[7][5] = (19, 600)
+    link_map[4][5] = (10, 600)
+    link_map[5][4] = (12, 600)
+    link_map[4][11] = (11, 1950)
+    link_map[11][4] = (32, 1950)
+    link_map[5][6] = (13, 1200)
+    link_map[6][5] = (16, 1200)
+    link_map[5][7] = (14, 600)
+    link_map[7][5] = (19, 600)
 
-    linkmap[6][10] = (17, 1050)
-    linkmap[10][6] = (29, 1050)
-    linkmap[6][14] = (18, 1800)
-    linkmap[14][6] = (41, 1800)
-    linkmap[7][8] = (20, 750)
-    linkmap[8][7] = (23, 750)
-    linkmap[7][10] = (21, 1350)
-    linkmap[10][7] = (30, 1350)
+    link_map[6][10] = (17, 1050)
+    link_map[10][6] = (29, 1050)
+    link_map[6][14] = (18, 1800)
+    link_map[14][6] = (41, 1800)
+    link_map[7][8] = (20, 750)
+    link_map[8][7] = (23, 750)
+    link_map[7][10] = (21, 1350)
+    link_map[10][7] = (30, 1350)
 
-    linkmap[8][9] = (24, 750)
-    linkmap[9][8] = (25, 750)
-    linkmap[9][10] = (26, 750)
-    linkmap[10][9] = (31, 750)
-    linkmap[9][12] = (27, 300)
-    linkmap[12][9] = (35, 300)
-    linkmap[9][13] = (28, 300)
-    linkmap[13][9] = (38, 300)
+    link_map[8][9] = (24, 750)
+    link_map[9][8] = (25, 750)
+    link_map[9][10] = (26, 750)
+    link_map[10][9] = (31, 750)
+    link_map[9][12] = (27, 300)
+    link_map[12][9] = (35, 300)
+    link_map[9][13] = (28, 300)
+    link_map[13][9] = (38, 300)
 
-    linkmap[11][12] = (33, 600)
-    linkmap[12][11] = (36, 600)
-    linkmap[11][13] = (34, 750)
-    linkmap[13][11] = (39, 750)
-    linkmap[12][14] = (37, 300)
-    linkmap[14][12] = (42, 300)
-    linkmap[13][14] = (40, 150)
-    linkmap[14][13] = (43, 150)
-    return linkmap
+    link_map[11][12] = (33, 600)
+    link_map[12][11] = (36, 600)
+    link_map[11][13] = (34, 750)
+    link_map[13][11] = (39, 750)
+    link_map[12][14] = (37, 300)
+    link_map[14][12] = (42, 300)
+    link_map[13][14] = (40, 150)
+    link_map[14][13] = (43, 150)
+    return link_map
 
 
 if __name__ == '__main__':
@@ -95,6 +95,7 @@ if __name__ == '__main__':
         config={
             "num_layers": 5,
             "layer_size": 128,
+            "epsilon": 0.5,
             "gamma": 0.95,  # penalty on future reward
             "episode_size": 1000,  # number of requests in each episode  # 1000
             "batch_size": 200,  # probably smaller value, e.g., 50, would be better for higher blocking probability (see
@@ -106,6 +107,8 @@ if __name__ == '__main__':
             "slot_total": 100           # Spectrum slots
         }
     )
+
+    # wandb.
 
     rlconfig = wandb.config
     tf.compat.v1.enable_eager_execution()
@@ -224,7 +227,7 @@ if __name__ == '__main__':
                                 num_layers=num_layers,
                                 layer_size=layer_size,
                                 regu_scalar=regu_scalar)  # Generate global network
-        num_agents = multiprocessing.cpu_count()- 1  # Set workers to number of available CPU threads
+        num_agents = multiprocessing.cpu_count()  # Set workers to number of available CPU threads
         # num_agents = 1  # Set workers to number of available CPU threads
         if num_agents > max_cpu:
             num_agents = max_cpu  # as most assign max_cpu CPUs
@@ -232,7 +235,7 @@ if __name__ == '__main__':
         # Create worker classes
         for i in range(num_agents):
             agents.append(
-                DeepRMSA_Agent(i, trainer, linkmap, LINK_NUM, NODE_NUM, SLOT_TOTAL, k_path, M, lambda_req,
+                DeepRMSAAgent(i, trainer, linkmap, LINK_NUM, NODE_NUM, SLOT_TOTAL, k_path, M, lambda_req,
                                lambda_time,
                                len_lambda_time, gamma, episode_size, batch_size, Src_Dst_Pair, Candidate_Paths,
                                num_src_dst_pair, model_path, global_episodes, regu_scalar, x_dim_p, x_dim_v, n_actions,
