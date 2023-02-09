@@ -108,13 +108,17 @@ class AC_Net:
         # initiate
         with tf.compat.v1.variable_scope('first'):
             x_h = slim.fully_connected(
-                InputFeatures, self.layer_size, normalizer_fn=tf.nn.batch_normalization, activation_fn=tf.nn.elu
+                InputFeatures,
+                self.layer_size,
+                activation_fn=tf.nn.elu
             )
         # multiple hidden
         for ii in range(self.num_layers - 1):
             with tf.compat.v1.variable_scope('hidden_%d' % ii):
                 x_h = slim.fully_connected(
-                    x_h, self.layer_size, normalizer_fn=tf.nn.batch_normalization, activation_fn=tf.nn.elu
+                    x_h,
+                    self.layer_size,
+                    activation_fn=tf.nn.elu
                 )
         return x_h
 

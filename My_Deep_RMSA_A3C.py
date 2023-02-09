@@ -219,14 +219,17 @@ if __name__ == '__main__':
         global_episodes = tf.Variable(0, dtype=tf.int64, name='global_episodes', trainable=False)
         trainer = tf.compat.v1.train.AdamOptimizer(learning_rate=1e-5)
         # trainer = tf.train.RMSPropOptimizer(learning_rate = 1e-5, decay = 0.99, epsilon = 0.0001)
-        master_network = AC_Net(scope='global',
-                                trainer=None,
-                                x_dim_p=x_dim_p,
-                                x_dim_v=x_dim_v,
-                                n_actions=n_actions,
-                                num_layers=num_layers,
-                                layer_size=layer_size,
-                                regu_scalar=regu_scalar)  # Generate global network
+        # Generate global network
+        master_network = AC_Net(
+            scope='global',
+            trainer=None,
+            x_dim_p=x_dim_p,
+            x_dim_v=x_dim_v,
+            n_actions=n_actions,
+            num_layers=num_layers,
+            layer_size=layer_size,
+            regu_scalar=regu_scalar
+        )
         num_agents = multiprocessing.cpu_count()  # Set workers to number of available CPU threads
         # num_agents = 1  # Set workers to number of available CPU threads
         if num_agents > max_cpu:
@@ -235,12 +238,15 @@ if __name__ == '__main__':
         # Create worker classes
         for i in range(num_agents):
             agents.append(
-                DeepRMSAAgent(i, trainer, linkmap, LINK_NUM, NODE_NUM, SLOT_TOTAL, k_path, M, lambda_req,
-                               lambda_time,
-                               len_lambda_time, gamma, episode_size, batch_size, Src_Dst_Pair, Candidate_Paths,
-                               num_src_dst_pair, model_path, global_episodes, regu_scalar, x_dim_p, x_dim_v, n_actions,
-                               num_layers, layer_size, model2_flag, nonuniform, prob_arr,
-                               configfile=configfile, results_path='results', maxDR=1200))
+                DeepRMSAAgent(
+                    i, trainer, linkmap, LINK_NUM, NODE_NUM, SLOT_TOTAL, k_path, M, lambda_req,
+                    lambda_time,
+                    len_lambda_time, gamma, episode_size, batch_size, Src_Dst_Pair, Candidate_Paths,
+                    num_src_dst_pair, model_path, global_episodes, regu_scalar, x_dim_p, x_dim_v, n_actions,
+                    num_layers, layer_size, model2_flag, nonuniform, prob_arr,
+                    configfile=configfile, results_path='results', maxDR=1200
+                )
+            )
         saver = tf.compat.v1.train.Saver(max_to_keep=5)
 
     with tf.compat.v1.Session() as sess:
