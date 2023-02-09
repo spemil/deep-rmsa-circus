@@ -9,9 +9,9 @@ import copy
 import random
 import datetime
 
-from AC_Net import AC_Net
 import threading
 import multiprocessing
+import platform
 import tensorflow as tf
 import wandb
 # import tensorflow.contrib.slim as slim
@@ -23,6 +23,7 @@ from time import time
 from collections import defaultdict
 
 import pickle as pk
+from AC_Net import AC_Net
 from utils import *
 
 tf.compat.v1.enable_eager_execution()
@@ -813,6 +814,9 @@ class DeepRMSA_Agent():
                                       columns=np.arange(191.0 * 1e3, 191 * 1e3 + 100 * 12.5, 12.5))
                     df.to_csv(os.path.join(self.results_path, release_matrix_filename))
 
+                    # if platform.processor() == 'x86_64':
+                    #    os.
+
                     print('stored successfully!')
 
                     # if episode_count > 0:
@@ -846,6 +850,10 @@ class DeepRMSA_Agent():
                 if episode_count % sample_step == 0 and episode_count != 0:
                     if episode_count % (100 * sample_step) == 0 and self.name == 'agent_0':
                         saver.save(sess, self.model_path + '/model.cptk')
+                        # Save all files that currently exist containing the substring "ckpt":
+                        wandb.save('../logs/*ckpt*')
+                        # Save any files starting with "checkpoint" as they're written to:
+                        wandb.save(os.path.join(wandb.run.dir, "checkpoint*"))
                         print("Model Saved")
 
                 if self.name == 'agent_0':
