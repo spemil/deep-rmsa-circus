@@ -29,10 +29,10 @@ from utils import *
 tf.compat.v1.enable_eager_execution()
 
 
-class DeepRMSA_Agent():
+class DeepRMSAAgent(object):
 
     def __init__(self,
-                 id,
+                 agent_id,
                  trainer,
                  linkmap,
                  LINK_NUM,
@@ -64,7 +64,7 @@ class DeepRMSA_Agent():
                  configfile,
                  maxDR=600):
         # tf.compat.v1.disable_v2_behavior()
-        self.name = 'agent_' + str(id)
+        self.name = 'agent_' + str(agent_id)
         self.trainer = trainer
         self.linkmap = linkmap
         self.LINK_NUM = LINK_NUM
@@ -95,7 +95,7 @@ class DeepRMSA_Agent():
         self.episode_mean_values = []
         self.summary_writer = tf.compat.v1.summary.FileWriter("tmp/train_{}/{}".format(self.name,
                                                                                        datetime.datetime.now().strftime(
-                                                                                        '%Y-%m-%d_%H-%M-%S')))
+                                                                                           '%Y-%m-%d_%H-%M-%S')))
 
         self.x_dim_p = x_dim_p
         self.x_dim_v = x_dim_v
@@ -126,12 +126,12 @@ class DeepRMSA_Agent():
         self.equalPSD = self.configs['PSD'].mean() if self.configs['PSD'].max() / self.configs['PSD'].min() - 1 < .01 \
             else None
         if self.name == 'agent_0':
-            self.results_path = self.init_results_dir(self.results_path)
-            self.model_path = self.init_model_dir(self.model_path)
+            self.results_path = self.init_results_dir()
+            self.model_path = self.init_model_dir()
         # self.all_ones = [[1 for x in range(self.LINK_NUM)] for y in range(self.LINK_NUM)] # (flag-slicing)
         # self.all_negones = [[0 for x in range(self.LINK_NUM)] for y in range(self.LINK_NUM)] # (flag-slicing)
 
-    def init_results_dir(self, name):
+    def init_results_dir(self):
         save_dir = str(datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S'))
         path = os.path.join('tmp/results', save_dir)
         if os.path.isdir(path):
@@ -144,7 +144,7 @@ class DeepRMSA_Agent():
             f.write('\nconfig: ' + str(self.configfile))
         return path
 
-    def init_model_dir(self, name):
+    def init_model_dir(self):
         save_dir = str(datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S'))
         path = os.path.join('tmp/model', save_dir)
         if os.path.isdir(path):
@@ -425,25 +425,30 @@ class DeepRMSA_Agent():
 
         # Update the global network using gradients from loss
         # Generate network statistics to periodically save
-        feed_dict = {self.local_network.target_v: discounted_rewards_batch,
-                     self.local_network.Input_p: np.vstack(input_p),
-                     self.local_network.Input_v: np.vstack(input_v),
-                     self.local_network.actions: actions,
-                     self.local_network.advantages: advantages}
+        feed_dict = {
+            self.local_network.target_v: discounted_rewards_batch,
+            self.local_network.Input_p: np.vstack(input_p),
+            self.local_network.Input_v: np.vstack(input_v),
+            self.local_network.actions: actions,
+            self.local_network.advantages: advantages
+        }
+
         sum_value_losss, sum_policy_loss, sum_entropy, grad_norms_policy, grad_norms_value, var_norms_policy, \
             var_norms_value, _, _, regu_loss_policy, regu_loss_value = sess.run(
-            [self.local_network.loss_value,
-             self.local_network.loss_policy,
-             self.local_network.entropy,
-             self.local_network.grad_norms_policy,
-             self.local_network.grad_norms_value,
-             self.local_network.var_norms_policy,
-             self.local_network.var_norms_value,
-             self.local_network.apply_grads_policy,
-             self.local_network.apply_grads_value,
-             self.local_network.regu_loss_policy,
-             self.local_network.regu_loss_value],
-            feed_dict=feed_dict)
+                [
+                    self.local_network.loss_value,
+                    self.local_network.loss_policy,
+                    self.local_network.entropy,
+                    self.local_network.grad_norms_policy,
+                    self.local_network.grad_norms_value,
+                    self.local_network.var_norms_policy,
+                    self.local_network.var_norms_value,
+                    self.local_network.apply_grads_policy,
+                    self.local_network.apply_grads_value,
+                    self.local_network.regu_loss_policy,
+                    self.local_network.regu_loss_value
+                ], feed_dict=feed_dict
+            )
         return sum_value_losss / self.batch_size, sum_policy_loss / self.batch_size, sum_entropy / self.batch_size, grad_norms_policy, grad_norms_value, var_norms_policy, var_norms_value, regu_loss_policy / self.batch_size, regu_loss_value / self.batch_size
 
     def rmsa(self, sess, coord, saver):
@@ -469,7 +474,8 @@ class DeepRMSA_Agent():
         # update local dnn with the global one
         sess.run(self.update_local_ops)
 
-        epsilon = 1
+        # Initialize exploration probability (very high in beginning?!)
+        epsilon = wandb.config.epsilon
 
         # bool signifying if next request is remaining reqDR of previous one
         carry = False
@@ -484,6 +490,7 @@ class DeepRMSA_Agent():
             while not coord.should_stop():
 
                 # store some traffic details:
+                epsilons = []
                 ids = []
                 srcs = []
                 dsts = []
@@ -594,10 +601,12 @@ class DeepRMSA_Agent():
                         request_set_tmp = copy.deepcopy(self.request_set)
                         slot_map_t_tmp = copy.deepcopy(self.slot_map_t)
                         for ii in range(self.model2_flag):
-                            (slot_map_tmp, request_set_tmp, slot_map_t_tmp) = self.release(slot_map_tmp,
-                                                                                           request_set_tmp,
-                                                                                           slot_map_t_tmp,
-                                                                                           5 * self.lambda_intervals)
+                            (slot_map_tmp, request_set_tmp,
+                             slot_map_t_tmp, release_matrix) = self.release(slot_map_tmp,
+                                                                            request_set_tmp,
+                                                                            slot_map_t_tmp,
+                                                                            5 * self.lambda_intervals,
+                                                                            release_matrix)
                             slot_map_fur.append(slot_map_tmp)
 
                     for x in range(self.k_path):
@@ -669,8 +678,11 @@ class DeepRMSA_Agent():
                     # Take an action using probabilities from policy network output.
                     prob_dist, value, entro = sess.run(
                         [self.local_network.policy, self.local_network.value, self.local_network.entropy],
-                        feed_dict={self.local_network.Input_p: Input_feature,
-                                   self.local_network.Input_v: Input_feature})
+                        feed_dict={
+                            self.local_network.Input_p: Input_feature,
+                            self.local_network.Input_v: Input_feature
+                        }
+                    )
                     pp = prob_dist[0]
                     assert not np.isnan(entro)
                     '''if self.name == 'agent_0':
@@ -725,11 +737,14 @@ class DeepRMSA_Agent():
                                                            self.slot_map)  # spectrum utilization on the whole path
                         (flag, fs_start, fs_end) = self.judge_availability(slot_temp, num_FS, FS_id)
                         if flag == 1:
-                            self.slot_map, self.slot_map_t = self.update_slot_map_for_committing_wp(self.slot_map,
-                                                                                                    path_links,
-                                                                                                    fs_start, fs_end,
-                                                                                                    self.slot_map_t,
-                                                                                                    current_TTL)  # --
+                            self.slot_map, self.slot_map_t = self.update_slot_map_for_committing_wp(
+                                self.slot_map,
+                                path_links,
+                                fs_start,
+                                fs_end,
+                                self.slot_map_t,
+                                current_TTL
+                            )  # --
                             # update slotmap
                             temp_ = [list(path_links), fs_start, fs_end, current_TTL]  # update in-service requests
                             self.request_set[episode_step_count] = temp_  # request_set[req_id] maybe carry overwrites
@@ -769,32 +784,21 @@ class DeepRMSA_Agent():
                             self.update_local_ops)  # if we want to synchronize local with global every time a
                         # training is performed
                         epsilon = np.max([epsilon - 1e-5, 0.05])
+                        epsilons.append(epsilon)
 
                 # traffic_matrixs.append(self.slot_map)
                 storage_interval = 100
                 if episode_count % storage_interval == 0 and self.name == 'agent_0':
-                    """
-                    ids = []
-                    node_pairs = []
-                    bws = []
-                    toa = []
-                    tod = []
-                    block = []
-                    action_ids = []
-                    config_ids = []
-                    path_ids = []
-                    fs_ids = []
-                    slotnums = []
-                    path_lens = []
-                    traffic_matrixs = []"""
-
+                    # Store environment variables and metrics
                     df = pd.DataFrame(
-                        (episode_values, ids, srcs, dsts, bws, provDRs, psds, snrs, toa, tod, block, action_ids,
-                         path_ids, fs_ids, slotnums, path_lens, chosen_configs, carries, req_set_lens, occupied,
-                         req_set_slots)).T
-                    df.columns = ('values', 'IDs', 'srcNode', 'dstNode', 'reqDR', 'provDR', 'PSD', 'linSNR', 'toa',
-                                  'tod', 'block', 'Action ID', 'Path ID', 'FS ID', 'Slots', 'Path length', 'configID',
-                                  'carry', 'rset lengths', 'zero slots', 'rset slots')
+                        (epsilons, episode_values, ids, srcs, dsts, bws, provDRs, psds, snrs, toa, tod, block,
+                         action_ids, path_ids, fs_ids, slotnums, path_lens, chosen_configs, carries, req_set_lens,
+                         occupied, req_set_slots)
+                    ).T
+                    df.columns = (
+                        'epsilons', 'values', 'IDs', 'srcNode', 'dstNode', 'reqDR', 'provDR', 'PSD', 'linSNR', 'toa',
+                        'tod', 'block', 'Action ID', 'Path ID', 'FS ID', 'Slots', 'Path length', 'configID',
+                        'carry', 'rset lengths', 'zero slots', 'rset slots')
                     det_filename = 'net_details_' + str(int(episode_count // storage_interval)) + '.csv'
                     traffic_matrix_filename = 'traffic_matrix_' + str(int(episode_count // storage_interval)) + '.csv'
                     traffic_matrix_t_filename = 'traffic_matrix_t_' + str(
@@ -856,31 +860,45 @@ class DeepRMSA_Agent():
                         wandb.save(os.path.join(wandb.run.dir, "checkpoint*"))
                         print("Model Saved")
 
-                if self.name == 'agent_0':
-                    mean_reward = np.mean(self.episode_rewards[-sample_step:])
-                    mean_value = np.mean(self.episode_mean_values[-sample_step:])
-                    mean_blocking = np.mean(self.episode_blocking[-sample_step:])
-                    wandb.log({
-                        'BP': bp,
-                        'Perf/Reward': float(mean_reward),
-                        'Perf/Value': float(mean_value),
-                        'Perf/Blocking': float(mean_blocking),
-                        'Losses/Value Loss': float(mean_value_losss),
-                        'Losses/Policy Loss': float(mean_policy_loss),
-                        'Losses/Entropy': float(mean_entropy),
-                        'Losses/Grad Norm Policy': float(grad_norms_policy),
-                        'Losses/Grad Norm Value': float(grad_norms_value),
-                        'Losses/Var Norm Policy': float(var_norms_policy),
-                        'Losses/Var Norm Value': float(var_norms_value),
-                        'Losses/Regu Loss Policy': float(regu_loss_policy),
-                        'Losses/Regu Loss Value': float(regu_loss_value)
-                    })
-                    wandb.tensorflow.log(tf.compat.v1.summary.merge_all())
-                    # self.summary_writer.add_summary(summary, episode_count)
+                    if self.name == 'agent_0':
+                        mean_reward = np.mean(self.episode_rewards[-sample_step:])
+                        mean_value = np.mean(self.episode_mean_values[-sample_step:])
+                        mean_blocking = np.mean(self.episode_blocking[-sample_step:])
+                        wandb.log(
+                            {
+                                'epsilon': epsilon,
+                                'BP': bp,
+                                'Perf/Reward': float(mean_reward),
+                                'Perf/Value': float(mean_value),
+                                'Perf/Blocking': float(mean_blocking),
+                                'Losses/Value Loss': float(mean_value_losss),
+                                'Losses/Policy Loss': float(mean_policy_loss),
+                                'Losses/Entropy': float(mean_entropy),
+                                'Losses/Grad Norm Policy': float(grad_norms_policy),
+                                'Losses/Grad Norm Value': float(grad_norms_value),
+                                'Losses/Var Norm Policy': float(var_norms_policy),
+                                'Losses/Var Norm Value': float(var_norms_value),
+                                'Losses/Regu Loss Policy': float(regu_loss_policy),
+                                'Losses/Regu Loss Value': float(regu_loss_value)
+                            }
+                        )
+                        wandb.log(
+                            {
+                                'Slot Map (Value Function)': wandb.plots.HeatMap(
+                                    list(range(self.SLOT_TOTAL)),
+                                    list(range(self.LINK_NUM)),
+                                    self.slot_map
+                                )
+                            }
+                        )
+
+                        wandb.tensorflow.log(tf.compat.v1.summary.merge_all())
+                        # self.summary_writer.add_summary(summary, episode_count)
 
                 if self.name == 'agent_0':
                     sess.run(self.increment)
 
+                ''' # End
                 if (episode_count // 100) == 8:  # 4
                     wandb.finish()
-                    coord.request_stop()
+                    coord.request_stop()'''
