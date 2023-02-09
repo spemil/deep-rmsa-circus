@@ -34,16 +34,20 @@ class AC_Net:
 
         with tf.compat.v1.variable_scope(self.scope):
             with tf.compat.v1.variable_scope('policy', regularizer=self.regularizer):  # Policy Q-Network
-                self.policy = slim.fully_connected(self.dnn(self.Input_p), self.n_actions,
-                                                   activation_fn=tf.nn.softmax,
-                                                   weights_initializer=self.normalized_columns_initializer(0.01),
-                                                   biases_initializer=None)
+                self.policy = slim.fully_connected(
+                    self.dnn(self.Input_p), self.n_actions,
+                    activation_fn=tf.nn.softmax,
+                    weights_initializer=self.normalized_columns_initializer(0.01),
+                    biases_initializer=None
+                )
 
             with tf.compat.v1.variable_scope('value', regularizer=self.regularizer):
-                self.value = slim.fully_connected(self.dnn(self.Input_v), 1,
-                                                  activation_fn=None,
-                                                  weights_initializer=self.normalized_columns_initializer(1.0),
-                                                  biases_initializer=None)
+                self.value = slim.fully_connected(
+                    self.dnn(self.Input_v), 1,
+                    activation_fn=None,
+                    weights_initializer=self.normalized_columns_initializer(1.0),
+                    biases_initializer=None
+                )
 
             # Only the worker network need ops for loss functions and gradient updating.
             if self.scope != 'global':
@@ -56,8 +60,9 @@ class AC_Net:
 
                 # Loss functions
                 self.regu_loss_policy = tf.add_n(
-                    tf.compat.v1.get_collection(tf.compat.v1.GraphKeys.REGULARIZATION_LOSSES,
-                                                scope=self.scope + '/policy'))
+                    tf.compat.v1.get_collection(
+                        tf.compat.v1.GraphKeys.REGULARIZATION_LOSSES, scope=self.scope + '/policy')
+                )
                 self.entropy = - tf.reduce_sum(
                     self.policy * tf.compat.v1.log(self.policy + 1e-6))  # 1e-6 is for preventing NaN
                 lost_policy_net = - tf.reduce_sum(tf.compat.v1.log(self.responsible_outputs + 1e-6) * self.advantages)
@@ -66,42 +71,51 @@ class AC_Net:
                 self.loss_policy = lost_policy_net - self.entropy * 0.01
 
                 self.regu_loss_value = tf.add_n(
-                    tf.compat.v1.get_collection(tf.compat.v1.GraphKeys.REGULARIZATION_LOSSES,
-                                                scope=self.scope + '/value'))
+                    tf.compat.v1.get_collection(
+                        tf.compat.v1.GraphKeys.REGULARIZATION_LOSSES, scope=self.scope + '/value')
+                )
                 loss_value_net = tf.reduce_sum(tf.square(self.target_v - tf.reshape(self.value, [-1])))
                 # self.loss_value = loss_value_net + self.regu_loss_value
                 self.loss_value = loss_value_net
 
                 # Get gradients from local network using local losses
-                local_vars_policy = tf.compat.v1.get_collection(tf.compat.v1.GraphKeys.TRAINABLE_VARIABLES,
-                                                                scope=self.scope + '/policy')
+                local_vars_policy = tf.compat.v1.get_collection(
+                    tf.compat.v1.GraphKeys.TRAINABLE_VARIABLES, scope=self.scope + '/policy'
+                )
                 self.gradients_policy = tf.gradients(self.loss_policy, local_vars_policy)
                 self.var_norms_policy = tf.compat.v1.global_norm(local_vars_policy)
                 grads_policy, self.grad_norms_policy = tf.clip_by_global_norm(self.gradients_policy, 40.0)
 
-                local_vars_value = tf.compat.v1.get_collection(tf.compat.v1.GraphKeys.TRAINABLE_VARIABLES,
-                                                               scope=self.scope + '/value')
+                local_vars_value = tf.compat.v1.get_collection(
+                    tf.compat.v1.GraphKeys.TRAINABLE_VARIABLES, scope=self.scope + '/value'
+                )
                 self.gradients_value = tf.gradients(self.loss_value, local_vars_value)
                 self.var_norms_value = tf.compat.v1.global_norm(local_vars_value)
                 grads_value, self.grad_norms_value = tf.clip_by_global_norm(self.gradients_value, 40.0)
 
                 # Apply local gradients to global network
-                global_vars_policy = tf.compat.v1.get_collection(tf.compat.v1.GraphKeys.TRAINABLE_VARIABLES,
-                                                                 'global' + '/policy')
+                global_vars_policy = tf.compat.v1.get_collection(
+                    tf.compat.v1.GraphKeys.TRAINABLE_VARIABLES, 'global' + '/policy'
+                )
                 self.apply_grads_policy = self.trainer.apply_gradients(list(zip(grads_policy, global_vars_policy)))
 
-                global_vars_value = tf.compat.v1.get_collection(tf.compat.v1.GraphKeys.TRAINABLE_VARIABLES,
-                                                                'global' + '/value')
+                global_vars_value = tf.compat.v1.get_collection(
+                    tf.compat.v1.GraphKeys.TRAINABLE_VARIABLES, 'global' + '/value'
+                )
                 self.apply_grads_value = self.trainer.apply_gradients(zip(grads_value, global_vars_value))
 
     def dnn(self, InputFeatures):
         # initiate
         with tf.compat.v1.variable_scope('first'):
-            x_h = slim.fully_connected(InputFeatures, self.layer_size, activation_fn=tf.nn.elu)
+            x_h = slim.fully_connected(
+                InputFeatures, self.layer_size, normalizer_fn=tf.nn.batch_normalization, activation_fn=tf.nn.elu
+            )
         # multiple hidden
         for ii in range(self.num_layers - 1):
             with tf.compat.v1.variable_scope('hidden_%d' % ii):
-                x_h = slim.fully_connected(x_h, self.layer_size, activation_fn=tf.nn.elu)
+                x_h = slim.fully_connected(
+                    x_h, self.layer_size, normalizer_fn=tf.nn.batch_normalization, activation_fn=tf.nn.elu
+                )
         return x_h
 
     def normalized_columns_initializer(self, std=1.0):
