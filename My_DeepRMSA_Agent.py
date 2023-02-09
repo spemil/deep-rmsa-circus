@@ -798,12 +798,12 @@ class DeepRMSAAgent(object):
                     df.columns = (
                         'epsilons', 'values', 'IDs', 'srcNode', 'dstNode', 'reqDR', 'provDR', 'PSD', 'linSNR', 'toa',
                         'tod', 'block', 'Action ID', 'Path ID', 'FS ID', 'Slots', 'Path length', 'configID',
-                        'carry', 'rset lengths', 'zero slots', 'rset slots')
-                    det_filename = 'net_details_' + str(int(episode_count // storage_interval)) + '.csv'
-                    traffic_matrix_filename = 'traffic_matrix_' + str(int(episode_count // storage_interval)) + '.csv'
-                    traffic_matrix_t_filename = 'traffic_matrix_t_' + str(
-                        int(episode_count // storage_interval)) + '.csv'
-                    release_matrix_filename = 'release_matrix_' + str(int(episode_count // storage_interval)) + '.csv'
+                        'carry', 'rset lengths', 'zero slots', 'rset slots'
+                    )
+                    det_filename = f'net_details_{int(episode_count // storage_interval)}.csv'
+                    traffic_matrix_filename = f'traffic_matrix_{int(episode_count // storage_interval)}.csv'
+                    traffic_matrix_t_filename = f'traffic_matrix_t_{int(episode_count // storage_interval)}.csv'
+                    release_matrix_filename = f'release_matrix_{int(episode_count // storage_interval)}.csv'
                     df.to_csv(os.path.join(self.results_path, det_filename))
 
                     df = pd.DataFrame(self.slot_map,
@@ -855,9 +855,9 @@ class DeepRMSAAgent(object):
                     if episode_count % (100 * sample_step) == 0 and self.name == 'agent_0':
                         saver.save(sess, self.model_path + '/model.cptk')
                         # Save all files that currently exist containing the substring "ckpt":
-                        wandb.save('../logs/*ckpt*')
+                        wandb.save(f'{self.model_path}/*ckpt*')
                         # Save any files starting with "checkpoint" as they're written to:
-                        wandb.save(os.path.join(wandb.run.dir, "checkpoint*"))
+                        wandb.save(os.path.join(self.model_path, "checkpoint*"))
                         print("Model Saved")
 
                     if self.name == 'agent_0':
