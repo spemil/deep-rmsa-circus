@@ -1,0 +1,21 @@
+2023-02-09 17:50:44,552 INFO    MainThread:25346 [wandb_setup.py:_flush():68] Configure stats pid to 25346
+2023-02-09 17:50:44,553 INFO    MainThread:25346 [wandb_setup.py:_flush():68] Loading settings from /Users/emil/.config/wandb/settings
+2023-02-09 17:50:44,553 INFO    MainThread:25346 [wandb_setup.py:_flush():68] Loading settings from /Users/emil/Documents/MyRMSA/wandb/settings
+2023-02-09 17:50:44,554 INFO    MainThread:25346 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True'}
+2023-02-09 17:50:44,554 INFO    MainThread:25346 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'My_Deep_RMSA_A3C.py', 'program': '/Users/emil/Documents/MyRMSA/My_Deep_RMSA_A3C.py'}
+2023-02-09 17:50:44,554 INFO    MainThread:25346 [wandb_init.py:_log_setup():478] Logging user logs to /Users/emil/Documents/MyRMSA/wandb/offline-run-20230209_175044-fyn68igc/logs/debug.log
+2023-02-09 17:50:44,554 INFO    MainThread:25346 [wandb_init.py:_log_setup():479] Logging internal logs to /Users/emil/Documents/MyRMSA/wandb/offline-run-20230209_175044-fyn68igc/logs/debug-internal.log
+2023-02-09 17:50:44,554 INFO    MainThread:25346 [wandb_init.py:init():518] calling init triggers
+2023-02-09 17:50:44,554 INFO    MainThread:25346 [wandb_init.py:init():521] wandb.init called with sweep_config: {}
+config: {'num_layers': 5, 'layer_size': 128, 'epsilon': 0.5, 'gamma': 0.95, 'episode_size': 1000, 'batch_size': 200, 'regu_scalar': 0.0001, 'M': 3, 'k_path': 3, 'configfile': 'CHANNEL_CONFIG_INTERPOLATED.json', 'slot_total': 100}
+2023-02-09 17:50:44,554 INFO    MainThread:25346 [wandb_init.py:init():571] starting backend
+2023-02-09 17:50:44,555 INFO    MainThread:25346 [wandb_init.py:init():575] setting up manager
+2023-02-09 17:50:44,567 INFO    MainThread:25346 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2023-02-09 17:50:44,574 INFO    MainThread:25346 [wandb_init.py:init():582] backend started and connected
+2023-02-09 17:50:44,581 INFO    MainThread:25346 [wandb_init.py:init():670] updated telemetry
+2023-02-09 17:50:44,635 INFO    MainThread:25346 [wandb_init.py:init():758] starting run threads in backend
+2023-02-09 17:50:56,264 INFO    MainThread:25346 [wandb_run.py:_console_start():2101] atexit reg
+2023-02-09 17:50:56,265 INFO    MainThread:25346 [wandb_run.py:_redirect():1959] redirect: SettingsConsole.WRAP_RAW
+2023-02-09 17:50:56,267 INFO    MainThread:25346 [wandb_run.py:_redirect():2024] Wrapping output streams.
+2023-02-09 17:50:56,267 INFO    MainThread:25346 [wandb_run.py:_redirect():2046] Redirects installed.
+2023-02-09 17:50:56,268 INFO    MainThread:25346 [wandb_init.py:init():798] run started, returning control to user process

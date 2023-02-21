@@ -103,7 +103,8 @@ if __name__ == '__main__':
             "M": 3,                     # Slots looked into
             "k_path": 3,                # k shortest paths
             "configfile": 'CHANNEL_CONFIG_INTERPOLATED.json',  # Transmitter Configurations
-            "slot_total": 100           # Spectrum slots
+            "slot_total": 100,           # Spectrum slots
+            "max_dr": 1200
         }
     )
 
@@ -224,7 +225,7 @@ if __name__ == '__main__':
                                 num_layers=num_layers,
                                 layer_size=layer_size,
                                 regu_scalar=regu_scalar)  # Generate global network
-        num_agents = multiprocessing.cpu_count()- 1  # Set workers to number of available CPU threads
+        num_agents = multiprocessing.cpu_count()  # Set workers to number of available CPU threads
         # num_agents = 1  # Set workers to number of available CPU threads
         if num_agents > max_cpu:
             num_agents = max_cpu  # as most assign max_cpu CPUs
@@ -237,7 +238,7 @@ if __name__ == '__main__':
                                len_lambda_time, gamma, episode_size, batch_size, Src_Dst_Pair, Candidate_Paths,
                                num_src_dst_pair, model_path, global_episodes, regu_scalar, x_dim_p, x_dim_v, n_actions,
                                num_layers, layer_size, model2_flag, nonuniform, prob_arr,
-                               configfile=configfile, results_path='results', maxDR=1200))
+                               configfile=configfile, results_path='results', maxDR=wandb.config.max_dr))
         saver = tf.compat.v1.train.Saver(max_to_keep=5)
 
     with tf.compat.v1.Session() as sess:

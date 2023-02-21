@@ -1,0 +1,3 @@
+k path: 3
+M: 3
+config: CHANNEL_CONFIG_INTERPOLATED.json

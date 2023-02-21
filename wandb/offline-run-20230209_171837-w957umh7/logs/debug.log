@@ -1,0 +1,22 @@
+2023-02-09 17:18:37,848 INFO    MainThread:24961 [wandb_setup.py:_flush():68] Configure stats pid to 24961
+2023-02-09 17:18:37,848 INFO    MainThread:24961 [wandb_setup.py:_flush():68] Loading settings from /Users/emil/.config/wandb/settings
+2023-02-09 17:18:37,848 INFO    MainThread:24961 [wandb_setup.py:_flush():68] Loading settings from /Users/emil/Documents/MyRMSA/wandb/settings
+2023-02-09 17:18:37,849 INFO    MainThread:24961 [wandb_setup.py:_flush():68] Loading settings from environment variables: {'_require_service': 'True'}
+2023-02-09 17:18:37,849 INFO    MainThread:24961 [wandb_setup.py:_flush():68] Inferring run settings from compute environment: {'program_relpath': 'My_Deep_RMSA_A3C.py', 'program': '/Users/emil/Documents/MyRMSA/My_Deep_RMSA_A3C.py'}
+2023-02-09 17:18:37,850 INFO    MainThread:24961 [wandb_init.py:_log_setup():478] Logging user logs to /Users/emil/Documents/MyRMSA/wandb/offline-run-20230209_171837-w957umh7/logs/debug.log
+2023-02-09 17:18:37,850 INFO    MainThread:24961 [wandb_init.py:_log_setup():479] Logging internal logs to /Users/emil/Documents/MyRMSA/wandb/offline-run-20230209_171837-w957umh7/logs/debug-internal.log
+2023-02-09 17:18:37,851 INFO    MainThread:24961 [wandb_init.py:init():518] calling init triggers
+2023-02-09 17:18:37,852 INFO    MainThread:24961 [wandb_init.py:init():521] wandb.init called with sweep_config: {}
+config: {'num_layers': 5, 'layer_size': 128, 'epsilon': 0.5, 'gamma': 0.95, 'episode_size': 1000, 'batch_size': 200, 'regu_scalar': 0.0001, 'M': 3, 'k_path': 3, 'configfile': 'CHANNEL_CONFIG_INTERPOLATED.json', 'slot_total': 100}
+2023-02-09 17:18:37,852 INFO    MainThread:24961 [wandb_init.py:init():571] starting backend
+2023-02-09 17:18:37,852 INFO    MainThread:24961 [wandb_init.py:init():575] setting up manager
+2023-02-09 17:18:37,890 INFO    MainThread:24961 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2023-02-09 17:18:37,909 INFO    MainThread:24961 [wandb_init.py:init():582] backend started and connected
+2023-02-09 17:18:37,979 INFO    MainThread:24961 [wandb_init.py:init():670] updated telemetry
+2023-02-09 17:18:38,054 INFO    MainThread:24961 [wandb_init.py:init():758] starting run threads in backend
+2023-02-09 17:18:51,487 INFO    MainThread:24961 [wandb_run.py:_console_start():2101] atexit reg
+2023-02-09 17:18:51,488 INFO    MainThread:24961 [wandb_run.py:_redirect():1959] redirect: SettingsConsole.WRAP_RAW
+2023-02-09 17:18:51,490 INFO    MainThread:24961 [wandb_run.py:_redirect():2024] Wrapping output streams.
+2023-02-09 17:18:51,490 INFO    MainThread:24961 [wandb_run.py:_redirect():2046] Redirects installed.
+2023-02-09 17:18:51,492 INFO    MainThread:24961 [wandb_init.py:init():798] run started, returning control to user process
+2023-02-09 17:24:05,630 WARNING MsgRouterThr:24961 [router.py:message_loop():77] message_loop has been closed

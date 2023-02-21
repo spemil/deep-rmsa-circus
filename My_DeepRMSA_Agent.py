@@ -268,7 +268,7 @@ class DeepRMSA_Agent():
         return release_matrix
 
     def release(self, slot_map, request_set, slot_map_t,
-                time_to, release_matrix):  # update slotmap to release FS' occupied by expired requests
+                time_to, release_matrix=None):  # update slotmap to release FS' occupied by expired requests
         if request_set:
             # update slot_map_t
             for ii in range(self.LINK_NUM):
@@ -287,7 +287,8 @@ class DeepRMSA_Agent():
                     fe_wp = request_set[rr][2]
                     # release slots on the working path of the request
                     slot_map = self.update_slot_map_for_releasing_wp(slot_map, current_wp_link, fs_wp, fe_wp)
-                    release_matrix = self.update_release_matrix(release_matrix, current_wp_link, fs_wp, fe_wp)
+                    if release_matrix is not None:
+                        release_matrix = self.update_release_matrix(release_matrix, current_wp_link, fs_wp, fe_wp)
                     del_id.append(rr)
             for ii in del_id:
                 del request_set[ii]
@@ -431,18 +432,21 @@ class DeepRMSA_Agent():
                      self.local_network.advantages: advantages}
         sum_value_losss, sum_policy_loss, sum_entropy, grad_norms_policy, grad_norms_value, var_norms_policy, \
             var_norms_value, _, _, regu_loss_policy, regu_loss_value = sess.run(
-            [self.local_network.loss_value,
-             self.local_network.loss_policy,
-             self.local_network.entropy,
-             self.local_network.grad_norms_policy,
-             self.local_network.grad_norms_value,
-             self.local_network.var_norms_policy,
-             self.local_network.var_norms_value,
-             self.local_network.apply_grads_policy,
-             self.local_network.apply_grads_value,
-             self.local_network.regu_loss_policy,
-             self.local_network.regu_loss_value],
-            feed_dict=feed_dict)
+                [
+                     self.local_network.loss_value,
+                     self.local_network.loss_policy,
+                     self.local_network.entropy,
+                     self.local_network.grad_norms_policy,
+                     self.local_network.grad_norms_value,
+                     self.local_network.var_norms_policy,
+                     self.local_network.var_norms_value,
+                     self.local_network.apply_grads_policy,
+                     self.local_network.apply_grads_value,
+                     self.local_network.regu_loss_policy,
+                     self.local_network.regu_loss_value
+                ],
+                feed_dict=feed_dict
+            )
         return sum_value_losss / self.batch_size, sum_policy_loss / self.batch_size, sum_entropy / self.batch_size, grad_norms_policy, grad_norms_value, var_norms_policy, var_norms_value, regu_loss_policy / self.batch_size, regu_loss_value / self.batch_size
 
     def rmsa(self, sess, coord, saver):
@@ -527,8 +531,8 @@ class DeepRMSA_Agent():
                 # sorted_DRs[::-1].sort()
 
                 # adaptive learning rate
-                '''if episode_count % 10 == 0 and episode_count != 0:
-                    self.local_network.trainer._lr = np.max([1e-6, self.local_network.trainer._lr - 1e-6])'''
+                if episode_count % 10 == 0 and episode_count != 0:
+                    self.local_network.trainer._lr = np.max([1e-6, self.local_network.trainer._lr - 1e-6])
 
                 # begin an episode
                 resource_util = []
@@ -593,10 +597,12 @@ class DeepRMSA_Agent():
                         request_set_tmp = copy.deepcopy(self.request_set)
                         slot_map_t_tmp = copy.deepcopy(self.slot_map_t)
                         for ii in range(self.model2_flag):
-                            (slot_map_tmp, request_set_tmp, slot_map_t_tmp) = self.release(slot_map_tmp,
-                                                                                           request_set_tmp,
-                                                                                           slot_map_t_tmp,
-                                                                                           5 * self.lambda_intervals)
+                            (slot_map_tmp, request_set_tmp, slot_map_t_tmp, _) = self.release(
+                                slot_map_tmp,
+                                request_set_tmp,
+                                slot_map_t_tmp,
+                                5 * self.lambda_intervals
+                            )
                             slot_map_fur.append(slot_map_tmp)
 
                     for x in range(self.k_path):
@@ -821,7 +827,7 @@ class DeepRMSA_Agent():
                 # end of an episode
                 episode_count += 1
 
-                # sess.run(self.update_local_ops) # if we want to synchronize local with global every episode is
+                sess.run(self.update_local_ops)  # if we want to synchronize local with global every episode is
                 # finished
 
                 if episode_count <= (3000 / self.episode_size):  # for warm-up
@@ -854,6 +860,7 @@ class DeepRMSA_Agent():
                     mean_blocking = np.mean(self.episode_blocking[-sample_step:])
                     wandb.log({
                         'BP': bp,
+                        'epsilon': epsilon,
                         'Perf/Reward': float(mean_reward),
                         'Perf/Value': float(mean_value),
                         'Perf/Blocking': float(mean_blocking),

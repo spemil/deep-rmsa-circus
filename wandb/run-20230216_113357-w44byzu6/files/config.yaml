@@ -1,0 +1,74 @@
+wandb_version: 1
+
+M:
+  desc: null
+  value: 3
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.13.9
+    framework: keras
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.10.8
+    start_time: 1676543637.119762
+    t:
+      1:
+      - 2
+      - 3
+      - 5
+      - 53
+      - 55
+      2:
+      - 2
+      - 3
+      - 5
+      - 53
+      - 55
+      3:
+      - 3
+      - 16
+      - 23
+      - 29
+      4: 3.10.8
+      5: 0.13.9
+      8:
+      - 5
+      10:
+      - 5
+    viz:
+      Slot Map (Value Function):
+        historyFieldSettings:
+          key: Slot Map (Value Function)
+          x-axis: _step
+        id: wandb/heatmap_no_text/v1
+batch_size:
+  desc: null
+  value: 200
+configfile:
+  desc: null
+  value: CHANNEL_CONFIG_INTERPOLATED.json
+episode_size:
+  desc: null
+  value: 1000
+epsilon:
+  desc: null
+  value: 0.5
+gamma:
+  desc: null
+  value: 0.95
+k_path:
+  desc: null
+  value: 3
+layer_size:
+  desc: null
+  value: 128
+num_layers:
+  desc: null
+  value: 5
+regu_scalar:
+  desc: null
+  value: 0.0001
+slot_total:
+  desc: null
+  value: 100

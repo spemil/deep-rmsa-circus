@@ -1,0 +1,173 @@
+2023-02-14 15:39:39,989 INFO    StreamThr :7761 [internal.py:wandb_internal():87] W&B internal server running at pid: 7761, started at: 2023-02-14 15:39:39.986316
+2023-02-14 15:39:39,993 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status
+2023-02-14 15:39:40,018 INFO    WriterThread:7761 [datastore.py:open_for_write():85] open: /Users/emil/Documents/MyRMSA/wandb/run-20230214_153939-p3qvsqgv/run-p3qvsqgv.wandb
+2023-02-14 15:39:40,019 DEBUG   SenderThread:7761 [sender.py:send():334] send: header
+2023-02-14 15:39:40,058 DEBUG   SenderThread:7761 [sender.py:send():334] send: run
+2023-02-14 15:39:40,647 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: check_version
+2023-02-14 15:39:40,651 INFO    SenderThread:7761 [dir_watcher.py:__init__():216] watching files in: /Users/emil/Documents/MyRMSA/wandb/run-20230214_153939-p3qvsqgv/files
+2023-02-14 15:39:40,651 INFO    SenderThread:7761 [sender.py:_start_run_threads():1065] run started: p3qvsqgv with start time 1676385579.991034
+2023-02-14 15:39:40,652 DEBUG   SenderThread:7761 [sender.py:send_request():361] send_request: summary_record
+2023-02-14 15:39:40,652 INFO    SenderThread:7761 [sender.py:_save_file():1319] saving file wandb-summary.json with policy end
+2023-02-14 15:39:40,653 DEBUG   SenderThread:7761 [sender.py:send_request():361] send_request: check_version
+2023-02-14 15:39:40,763 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: run_start
+2023-02-14 15:39:40,793 DEBUG   HandlerThread:7761 [system_info.py:__init__():31] System info init
+2023-02-14 15:39:40,795 DEBUG   HandlerThread:7761 [system_info.py:__init__():46] System info init done
+2023-02-14 15:39:40,795 INFO    HandlerThread:7761 [system_monitor.py:start():151] Starting system monitor
+2023-02-14 15:39:40,797 INFO    SystemMonitor:7761 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2023-02-14 15:39:40,798 INFO    HandlerThread:7761 [system_monitor.py:probe():172] Collecting system info
+2023-02-14 15:39:40,799 INFO    SystemMonitor:7761 [interfaces.py:start():168] Started cpu
+2023-02-14 15:39:40,800 DEBUG   HandlerThread:7761 [system_info.py:probe():195] Probing system
+2023-02-14 15:39:40,801 INFO    SystemMonitor:7761 [interfaces.py:start():168] Started disk
+2023-02-14 15:39:40,802 INFO    SystemMonitor:7761 [interfaces.py:start():168] Started memory
+2023-02-14 15:39:40,804 INFO    SystemMonitor:7761 [interfaces.py:start():168] Started network
+2023-02-14 15:39:40,820 DEBUG   HandlerThread:7761 [system_info.py:_probe_git():180] Probing git
+2023-02-14 15:39:40,894 DEBUG   HandlerThread:7761 [system_info.py:_probe_git():188] Probing git done
+2023-02-14 15:39:40,896 DEBUG   HandlerThread:7761 [system_info.py:probe():241] Probing system done
+2023-02-14 15:39:40,896 DEBUG   HandlerThread:7761 [system_monitor.py:probe():181] {'os': 'macOS-10.16-x86_64-i386-64bit', 'python': '3.10.8', 'heartbeatAt': '2023-02-14T14:39:40.801207', 'startedAt': '2023-02-14T14:39:39.959314', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/Users/emil/Documents/MyRMSA/My_Deep_RMSA_A3C.py', 'codePath': 'My_Deep_RMSA_A3C.py', 'git': {'remote': 'https://github.com/spemil/deep-rmsa-circus.git', 'commit': '258dd7721b2ebb38bfc2de0be2f119c4be2e9fe7'}, 'email': 'emil.spoiden@gmail.com', 'root': '/Users/emil/Documents/MyRMSA', 'host': 'Emils-MacBook-Pro-3.local', 'username': 'emil', 'executable': '/Users/emil/opt/anaconda3/envs/emilsenv/bin/python', 'cpu_count': 2, 'cpu_count_logical': 4, 'cpu_freq': {'current': 2000, 'min': 2000, 'max': 2000}, 'cpu_freq_per_core': [{'current': 2000, 'min': 2000, 'max': 2000}], 'disk': {'total': 233.46913528442383, 'used': 219.62177658081055}, 'memory': {'total': 8.0}}
+2023-02-14 15:39:40,896 INFO    HandlerThread:7761 [system_monitor.py:probe():182] Finished collecting system info
+2023-02-14 15:39:40,896 INFO    HandlerThread:7761 [system_monitor.py:probe():185] Publishing system info
+2023-02-14 15:39:40,897 DEBUG   HandlerThread:7761 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-02-14 15:39:40,899 DEBUG   HandlerThread:7761 [system_info.py:_save_pip():67] Saving pip packages done
+2023-02-14 15:39:40,899 DEBUG   HandlerThread:7761 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-02-14 15:39:41,666 INFO    Thread-17 :7761 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/emil/Documents/MyRMSA/wandb/run-20230214_153939-p3qvsqgv/files/conda-environment.yaml
+2023-02-14 15:39:41,667 INFO    Thread-17 :7761 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/emil/Documents/MyRMSA/wandb/run-20230214_153939-p3qvsqgv/files/wandb-summary.json
+2023-02-14 15:39:41,668 INFO    Thread-17 :7761 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/emil/Documents/MyRMSA/wandb/run-20230214_153939-p3qvsqgv/files/requirements.txt
+2023-02-14 15:39:52,695 INFO    Thread-17 :7761 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/emil/Documents/MyRMSA/wandb/run-20230214_153939-p3qvsqgv/files/conda-environment.yaml
+2023-02-14 15:39:52,714 DEBUG   HandlerThread:7761 [system_info.py:_save_conda():86] Saving conda packages done
+2023-02-14 15:39:52,717 INFO    HandlerThread:7761 [system_monitor.py:probe():187] Finished publishing system info
+2023-02-14 15:39:52,751 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:39:52,752 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:39:52,752 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:39:52,753 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:39:52,754 DEBUG   SenderThread:7761 [sender.py:send():334] send: files
+2023-02-14 15:39:52,755 INFO    SenderThread:7761 [sender.py:_save_file():1319] saving file wandb-metadata.json with policy now
+2023-02-14 15:39:52,774 DEBUG   SenderThread:7761 [sender.py:send():334] send: telemetry
+2023-02-14 15:39:52,778 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: stop_status
+2023-02-14 15:39:52,779 DEBUG   SenderThread:7761 [sender.py:send_request():361] send_request: stop_status
+2023-02-14 15:39:53,429 INFO    Thread-20 :7761 [upload_job.py:push():143] Uploaded file /var/folders/bj/q15t3z890g73nhfg59wvr4qh0000gn/T/tmphc0g7911wandb/ugpmhodu-wandb-metadata.json
+2023-02-14 15:39:53,753 INFO    Thread-17 :7761 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/emil/Documents/MyRMSA/wandb/run-20230214_153939-p3qvsqgv/files/wandb-metadata.json
+2023-02-14 15:39:53,754 INFO    Thread-17 :7761 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/emil/Documents/MyRMSA/wandb/run-20230214_153939-p3qvsqgv/files/output.log
+2023-02-14 15:39:55,801 INFO    Thread-17 :7761 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/emil/Documents/MyRMSA/wandb/run-20230214_153939-p3qvsqgv/files/output.log
+2023-02-14 15:39:56,423 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:39:56,798 INFO    Thread-17 :7761 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/emil/Documents/MyRMSA/wandb/run-20230214_153939-p3qvsqgv/files/output.log
+2023-02-14 15:39:58,841 INFO    Thread-17 :7761 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/emil/Documents/MyRMSA/wandb/run-20230214_153939-p3qvsqgv/files/output.log
+2023-02-14 15:40:01,440 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:40:06,459 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:40:07,771 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:40:11,480 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:40:11,889 INFO    Thread-17 :7761 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/emil/Documents/MyRMSA/wandb/run-20230214_153939-p3qvsqgv/files/config.yaml
+2023-02-14 15:40:12,810 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:40:16,789 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:40:17,863 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:40:21,808 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:40:22,916 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:40:26,827 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:40:27,936 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:40:28,956 INFO    Thread-17 :7761 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/emil/Documents/MyRMSA/wandb/run-20230214_153939-p3qvsqgv/files/output.log
+2023-02-14 15:40:30,972 INFO    Thread-17 :7761 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/emil/Documents/MyRMSA/wandb/run-20230214_153939-p3qvsqgv/files/output.log
+2023-02-14 15:40:31,866 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:40:32,987 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:40:32,996 INFO    Thread-17 :7761 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/emil/Documents/MyRMSA/wandb/run-20230214_153939-p3qvsqgv/files/output.log
+2023-02-14 15:40:35,037 INFO    Thread-17 :7761 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/emil/Documents/MyRMSA/wandb/run-20230214_153939-p3qvsqgv/files/output.log
+2023-02-14 15:40:37,050 INFO    Thread-17 :7761 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/emil/Documents/MyRMSA/wandb/run-20230214_153939-p3qvsqgv/files/output.log
+2023-02-14 15:40:37,363 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:40:38,001 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:40:40,814 DEBUG   SystemMonitor:7761 [system_monitor.py:_start():130] Starting system metrics aggregation loop
+2023-02-14 15:40:40,816 DEBUG   SenderThread:7761 [sender.py:send():334] send: stats
+2023-02-14 15:40:42,819 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:40:43,024 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:40:47,830 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:40:48,044 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:40:52,848 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:40:53,065 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:40:57,865 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:40:58,084 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:41:02,881 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:41:03,100 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:41:07,899 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:41:08,118 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:41:10,818 DEBUG   SenderThread:7761 [sender.py:send():334] send: stats
+2023-02-14 15:41:13,134 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:41:13,832 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:41:18,150 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:41:18,844 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:41:23,166 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:41:23,855 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:41:28,184 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:41:28,871 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:41:33,201 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:41:33,888 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:41:38,218 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:41:38,901 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:41:40,822 DEBUG   SenderThread:7761 [sender.py:send():334] send: stats
+2023-02-14 15:41:43,236 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:41:44,838 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:41:48,254 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:41:49,854 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:41:53,275 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:41:54,874 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:41:58,295 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:41:59,894 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:42:03,311 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:42:04,908 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:42:08,324 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:42:09,928 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:42:10,825 DEBUG   SenderThread:7761 [sender.py:send():334] send: stats
+2023-02-14 15:42:13,344 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:42:15,844 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:42:18,366 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:42:20,859 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:42:23,380 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:42:25,876 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:42:28,398 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:42:30,895 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:42:33,415 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:42:35,914 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:42:38,428 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:42:40,826 DEBUG   SenderThread:7761 [sender.py:send():334] send: stats
+2023-02-14 15:42:41,827 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:42:43,448 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:42:46,840 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:42:48,465 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:42:51,858 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:42:53,484 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:42:56,875 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:42:58,499 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:43:01,889 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:43:03,514 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:43:06,911 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:43:08,535 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:43:10,828 DEBUG   SenderThread:7761 [sender.py:send():334] send: stats
+2023-02-14 15:43:12,863 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:43:13,596 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:43:17,876 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:43:18,614 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:43:22,890 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:43:23,634 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:43:27,905 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:43:28,654 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:43:32,920 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:43:33,670 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:43:37,937 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:43:38,690 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:43:40,832 DEBUG   SenderThread:7761 [sender.py:send():334] send: stats
+2023-02-14 15:43:43,710 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:43:43,848 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:43:48,727 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:43:48,865 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:43:53,739 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:43:53,884 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:43:58,755 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:43:58,906 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:44:03,784 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:44:03,928 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:44:08,810 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:44:08,943 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:44:10,836 DEBUG   SenderThread:7761 [sender.py:send():334] send: stats
+2023-02-14 15:44:13,828 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:44:14,854 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:44:18,848 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:44:19,871 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:44:23,861 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-14 15:44:24,890 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: status_report
+2023-02-14 15:44:28,877 DEBUG   HandlerThread:7761 [handler.py:handle_request():144] handle_request: keepalive

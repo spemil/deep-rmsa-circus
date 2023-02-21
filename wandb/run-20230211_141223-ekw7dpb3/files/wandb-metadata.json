@@ -1,0 +1,42 @@
+{
+    "os": "macOS-10.16-x86_64-i386-64bit",
+    "python": "3.10.8",
+    "heartbeatAt": "2023-02-11T13:12:24.775631",
+    "startedAt": "2023-02-11T13:12:23.409609",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/Users/emil/Documents/MyRMSA/My_Deep_RMSA_A3C.py",
+    "codePath": "My_Deep_RMSA_A3C.py",
+    "git": {
+        "remote": "https://github.com/spemil/deep-rmsa-circus.git",
+        "commit": "258dd7721b2ebb38bfc2de0be2f119c4be2e9fe7"
+    },
+    "email": "emil.spoiden@gmail.com",
+    "root": "/Users/emil/Documents/MyRMSA",
+    "host": "Emils-MacBook-Pro-3.local",
+    "username": "emil",
+    "executable": "/Users/emil/opt/anaconda3/envs/emilsenv/bin/python",
+    "cpu_count": 2,
+    "cpu_count_logical": 4,
+    "cpu_freq": {
+        "current": 2000,
+        "min": 2000,
+        "max": 2000
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2000,
+            "min": 2000,
+            "max": 2000
+        }
+    ],
+    "disk": {
+        "total": 233.46913528442383,
+        "used": 217.8649444580078
+    },
+    "memory": {
+        "total": 8.0
+    }
+}

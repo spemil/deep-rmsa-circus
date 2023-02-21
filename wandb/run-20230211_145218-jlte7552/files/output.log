@@ -1,0 +1,13 @@
+WARNING:tensorflow:From /Users/emil/opt/anaconda3/envs/emilsenv/lib/python3.10/site-packages/tensorflow/python/compat/v2_compat.py:107: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+/Users/emil/opt/anaconda3/envs/emilsenv/lib/python3.10/site-packages/tensorflow/python/keras/engine/base_layer_v1.py:1694: UserWarning: `layer.apply` is deprecated and will be removed in a future version. Please use `layer.__call__` method instead.
+  warnings.warn('`layer.apply` is deprecated and '
+Traceback (most recent call last):
+  File "/Users/emil/opt/anaconda3/envs/emilsenv/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/Users/emil/opt/anaconda3/envs/emilsenv/lib/python3.10/site-packages/tensorflow/python/framework/ops.py", line 4731, in device
+    yield
+  File "/Users/emil/Documents/MyRMSA/My_Deep_RMSA_A3C.py", line 241, in <module>
+    DeepRMSAAgent(
+TypeError: DeepRMSAAgent.__init__() got multiple values for argument 'configfile'

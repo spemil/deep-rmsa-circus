@@ -1,0 +1,1 @@
+{"LPID": null, "srcNode": 13, "dstNode": 14, "provDR": 950.0, "SNR": null, "configID": 39.0, "pathID": 2, "fsID": 1.0, "actionID": 7, "linklist": [13, 11, 12, 14], "indices": null, "blocking": 0, "demandID": 90, "pathLength": [39, 33, 37], "links": [39, 33, 37], "carry": false, "_timestamp": 1676540361.666317, "_runtime": 165.98234605789185, "_step": 45}
