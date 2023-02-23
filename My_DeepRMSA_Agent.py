@@ -127,6 +127,7 @@ class DeepRMSA_Agent():
         if self.name == 'agent_0':
             self.results_path = self.init_results_dir(self.results_path)
             self.model_path = self.init_model_dir(self.model_path)
+            wandb.config.update({"model-path": self.model_path})
         # self.all_ones = [[1 for x in range(self.LINK_NUM)] for y in range(self.LINK_NUM)] # (flag-slicing)
         # self.all_negones = [[0 for x in range(self.LINK_NUM)] for y in range(self.LINK_NUM)] # (flag-slicing)
 
