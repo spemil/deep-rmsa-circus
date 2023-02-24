@@ -2,7 +2,7 @@ project: "MTRLmethod"
 program: My_Deep_RMSA_A3C.py
 method: bayes
 metric:
-  name: mean_reward_test
+  name: mean_reward
   goal: maximize
 parameters:
   learning_rate:
