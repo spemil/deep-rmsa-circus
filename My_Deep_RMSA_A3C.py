@@ -15,6 +15,7 @@ import struct
 from collections import defaultdict
 from AC_Net import AC_Net
 from My_DeepRMSA_Agent import DeepRMSA_Agent
+import argparse
 
 # from DeepRMSA_Agent_binarypacks import DeepRMSA_Agent
 
@@ -86,26 +87,12 @@ def get_link_map():
     return linkmap
 
 
-if __name__ == '__main__':
-
+def main():
     # Initialize Weights & Biases
     wandb.init(
         project="MTRLmethod",
         entity="spemil",
-        config={
-            "num_layers": 5,
-            "layer_size": 128,
-            "gamma": 0.95,  # penalty on future reward
-            "episode_size": 1000,  # number of requests in each episode  # 1000
-            "batch_size": 200,  # probably smaller value, e.g., 50, would be better for higher blocking probability (see
-                                # JLT)
-            "regu_scalar": 1e-4,
-            "M": 3,                     # Slots looked into
-            "k_path": 3,                # k shortest paths
-            "configfile": 'CHANNEL_CONFIG_INTERPOLATED.json',  # Transmitter Configurations
-            "slot_total": 100,           # Spectrum slots
-            "max_dr": 1200
-        }
+        config=args
     )
 
     rlconfig = wandb.config
@@ -264,3 +251,43 @@ if __name__ == '__main__':
             sleep(0.5)
             agent_threads.append(t)
         coord.join(agent_threads)
+
+
+def argumentParser():
+    parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument('--epsilon', default=0.05, type=float, help='Probability of chossing random action')
+    parser.add_argument('--alpha', default=0.1, type=float, help='Learning Rate')
+    parser.add_argument('--gamma', default=0.95, type=float, help='Discounting Factor')
+    parser.add_argument('--num_layers', default=5, type=int, help='Number of Layers of p,v-DNN')
+    parser.add_argument('--layer_size', default=128, type=int, help='Size of Layers')
+    parser.add_argument('--episode_size', default=1000, type=int, help='Epsiode size (# requests)')
+    parser.add_argument('--batch_size', default=200, type=int, help='Batch size (# requests)')
+    parser.add_argument('--regu_scalar', default=1e-4, type=float, help='Regularization scalar')
+    parser.add_argument('--M', default=3, type=int, help='FS looked into')
+    parser.add_argument('--k_path', default=3, type=int, help='k-shortest paths')
+    parser.add_argument('--slot_total', default=100, type=int, help='total slots')
+    parser.add_argument('--max_dr', default=1200, type=int, help='max datarate')
+    parser.add_argument('--configfile', default='CHANNEL_CONFIG_INTERPOLATED.json', type=str, help='Transmitter config')
+    return parser
+
+
+if __name__ == '__main__':
+    global args
+    args = argumentParser().parse_args()
+    main()
+
+
+'''default_config={
+        "num_layers": 5,
+        "layer_size": 128,
+        "gamma": 0.95,  # penalty on future reward
+        "episode_size": 1000,  # number of requests in each episode  # 1000
+        "batch_size": 200,  # probably smaller value, e.g., 50, would be better for higher blocking probability (see
+                            # JLT)
+        "regu_scalar": 1e-4,
+        "M": 3,                     # Slots looked into
+        "k_path": 3,                # k shortest paths
+        "configfile": 'CHANNEL_CONFIG_INTERPOLATED.json',  # Transmitter Configurations
+        "slot_total": 100,           # Spectrum slots
+        "max_dr": 1200
+    }'''
