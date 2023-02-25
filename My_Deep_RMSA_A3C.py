@@ -202,7 +202,7 @@ def main():
 
     with tf.device("/cpu:0"):
         global_episodes = tf.Variable(0, dtype=tf.int64, name='global_episodes', trainable=False)
-        trainer = tf.compat.v1.train.AdamOptimizer(learning_rate=1e-5)
+        trainer = tf.compat.v1.train.AdamOptimizer(learning_rate=wandb.config.learning_rate)
         # trainer = tf.train.RMSPropOptimizer(learning_rate = 1e-5, decay = 0.99, epsilon = 0.0001)
         master_network = AC_Net(scope='global',
                                 trainer=None,
