@@ -256,7 +256,7 @@ def main():
 def argumentParser():
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('--epsilon', default=0.05, type=float, help='Probability of chossing random action')
-    parser.add_argument('--alpha', default=0.1, type=float, help='Learning Rate')
+    parser.add_argument('--learning_rate', default=1e-5, type=float, help='Learning Rate')
     parser.add_argument('--gamma', default=0.95, type=float, help='Discounting Factor')
     parser.add_argument('--num_layers', default=5, type=int, help='Number of Layers of p,v-DNN')
     parser.add_argument('--layer_size', default=128, type=int, help='Size of Layers')
