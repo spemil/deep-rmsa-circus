@@ -132,7 +132,8 @@ class DeepRMSA_Agent():
         # self.all_negones = [[0 for x in range(self.LINK_NUM)] for y in range(self.LINK_NUM)] # (flag-slicing)
 
     def init_results_dir(self, name):
-        save_dir = str(datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S'))
+        # save_dir = str(datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S'))
+        save_dir = wandb.run.id
         path = os.path.join('tmp/results', save_dir)
         if os.path.isdir(path):
             assert 'Directory already exists'
@@ -145,7 +146,8 @@ class DeepRMSA_Agent():
         return path
 
     def init_model_dir(self, name):
-        save_dir = str(datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S'))
+        # save_dir = str(datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S'))
+        save_dir = wandb.run.id
         path = os.path.join('tmp/model', save_dir)
         if os.path.isdir(path):
             assert 'Directory already exists'

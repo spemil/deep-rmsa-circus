@@ -87,7 +87,7 @@ def get_link_map():
     return linkmap
 
 
-def main():
+def train():
     # Initialize Weights & Biases
     wandb.init(
         project="MTRLmethod",
@@ -274,7 +274,7 @@ def argumentParser():
 if __name__ == '__main__':
     global args
     args = argumentParser().parse_args()
-    main()
+    train()
 
 
 '''default_config={
