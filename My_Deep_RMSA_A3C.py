@@ -265,7 +265,7 @@ def argumentParser():
     parser.add_argument('--regu_scalar', default=1e-4, type=float, help='Regularization scalar')
     parser.add_argument('--M', default=3, type=int, help='FS looked into')
     parser.add_argument('--k_path', default=3, type=int, help='k-shortest paths')
-    parser.add_argument('--slot_total', default=100, type=int, help='total slots')
+    parser.add_argument('--slot_total', default=400, type=int, help='total slots')
     parser.add_argument('--max_dr', default=1200, type=int, help='max datarate')
     parser.add_argument('--configfile', default='CHANNEL_CONFIG_REDUCED.json', type=str, help='Transmitter config')
     return parser
