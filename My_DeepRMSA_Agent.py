@@ -811,15 +811,15 @@ class DeepRMSA_Agent():
                     df.to_csv(os.path.join(self.results_path, det_filename))
 
                     df = pd.DataFrame(self.slot_map,
-                                      columns=np.arange(191.0 * 1e3, 191 * 1e3 + 100 * 12.5, 12.5))
+                                      columns=np.arange(191.0 * 1e3, 191 * 1e3 + self.SLOT_TOTAL * 12.5, 12.5))
                     df.to_csv(os.path.join(self.results_path, traffic_matrix_filename))
 
                     df = pd.DataFrame(self.slot_map_t,
-                                      columns=np.arange(191.0 * 1e3, 191 * 1e3 + 100 * 12.5, 12.5))
+                                      columns=np.arange(191.0 * 1e3, 191 * 1e3 + self.SLOT_TOTAL * 12.5, 12.5))
                     df.to_csv(os.path.join(self.results_path, traffic_matrix_t_filename))
 
                     df = pd.DataFrame(release_matrix,
-                                      columns=np.arange(191.0 * 1e3, 191 * 1e3 + 100 * 12.5, 12.5))
+                                      columns=np.arange(191.0 * 1e3, 191 * 1e3 + self.SLOT_TOTAL * 12.5, 12.5))
                     df.to_csv(os.path.join(self.results_path, release_matrix_filename))
 
                     print('stored successfully!')
